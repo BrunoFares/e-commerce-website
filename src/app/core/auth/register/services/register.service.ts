@@ -13,6 +13,6 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   login(request: IRegisterRequest) {
-    this.http.post<IRegisterResponse>(`${this.authUrl}/User/SignUp()`, request)
+    return this.http.post<IRegisterResponse>(`${this.authUrl}/User/SignUp()`, request)
   }
 }
