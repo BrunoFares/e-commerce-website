@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()">
+    <label for="firstNameAdmin">First Name</label>
+    <input name="firstNameAdmin" type="text" [(ngModel)]="firstName" id="firstNameAdmin"><br>
+
+    <label for="lastNameAdmin">Last Name</label>
+    <input name="lastNameAdmin" type="text" [(ngModel)]="lastName" id="lastNameAdmin"><br>
+
+    <label for="emailAdmin">Email</label>
+    <input name="emailAdmin" type="emailAdmin" [(ngModel)]="email" id="emailAdmin"><br>
+
+    <label for="adminPass">Password</label>
+    <input name="password" type="password" [(ngModel)]="password" id="adminPass"><br>
+
+    <button type="submit">Register</button>
+</form>
