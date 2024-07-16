@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IRegisterRequest } from './models/register-request.model';
 import { RegisterService } from './services/register.service';
-import { IRegisterResponse } from './models/register-reponse.model';
+import { IRegisterResponse } from './models/register-response.model';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +13,7 @@ export class RegisterComponent {
   lastName: string = ""
   email: string = ""
   password: string = ""
-  roleName: string = ""
+  roleName: string = "user"
 
   constructor(private registerService: RegisterService) {}
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { IRegisterRequest } from '../models/register-request.model';
-import { IRegisterResponse } from '../models/register-reponse.model';
+import { IRegisterResponse } from '../models/register-response.model';
 
 @Injectable({
   providedIn: 'root'
