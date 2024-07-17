@@ -7,7 +7,8 @@ import { FooterComponent } from './core/app-shell/footer/footer.component';
 import { HeaderComponent } from './core/app-shell/header/header.component';
 import { LoginComponent } from './core/auth/login/login.component';
 import { RegisterComponent } from './core/auth/register/register.component';
-import { FormsModule } from '@angular/forms';
+import { CreateAdminComponent } from './core/auth/create-admin/create-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -16,13 +17,15 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HeaderComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

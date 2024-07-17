@@ -1,9 +1,9 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
     <label for="username">Email</label>
-    <input name="username" type="text" [(ngModel)]="username" id="username"><br>
+    <input name="username" type="text" formControlName="username" id="username"><br>
 
     <label for="loginPass">Password</label>
-    <input name="password" type="password" [(ngModel)]="password" id="loginPass"><br>
+    <input name="password" type="password" formControlName="password" id="loginPass"><br>
 
-    <button type="submit">Log In</button>
+    <button type="submit" [disabled]="!loginForm.valid">Log In</button>
 </form>

@@ -1,15 +1,15 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="createAdminForm">
     <label for="firstNameAdmin">First Name</label>
-    <input name="firstNameAdmin" type="text" [(ngModel)]="firstName" id="firstNameAdmin"><br>
+    <input name="firstNameAdmin" type="text" formControlName="firstName" id="firstNameAdmin"><br>
 
     <label for="lastNameAdmin">Last Name</label>
-    <input name="lastNameAdmin" type="text" [(ngModel)]="lastName" id="lastNameAdmin"><br>
+    <input name="lastNameAdmin" type="text" formControlName="lastName" id="lastNameAdmin"><br>
 
     <label for="emailAdmin">Email</label>
-    <input name="emailAdmin" type="emailAdmin" [(ngModel)]="email" id="emailAdmin"><br>
+    <input name="emailAdmin" type="emailAdmin" formControlName="email" id="emailAdmin"><br>
 
     <label for="adminPass">Password</label>
-    <input name="password" type="password" [(ngModel)]="password" id="adminPass"><br>
+    <input name="password" type="password" formControlName="password" id="adminPass"><br>
 
-    <button type="submit">Register</button>
+    <button type="submit" [disabled]="!createAdminForm.valid">Create Admin</button>
 </form>
