@@ -1,0 +1,48 @@
+$background: rgb(180, 0, 0);
+$background-hover: rgb(132, 0, 0);
+
+img {
+    height: 30px;
+}
+
+.logo {
+    height: 60px;
+}
+
+nav {
+    background-color: $background;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    gap: 9%;
+    padding: 0 20em;
+}
+
+div {
+    display: flex;
+}
+
+button {
+    background-color: $background;
+    color: white;
+    border: 0;
+    font-size: 17px;
+    margin-right: 1em;
+    padding: 20px 1em;
+}
+
+button:hover {
+    background-color: $background-hover;
+}
+
+.icons {
+    margin-right: 1em;
+}
+
+input {
+    border-radius: 10px;
+    border: 0;
+    font-size: 17px;
+    padding: 7px 0 7px 7px;
+}
