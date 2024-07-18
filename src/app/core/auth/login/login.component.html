@@ -1,3 +1,4 @@
+<h1>Log In</h1>
 <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
     <label for="username">Email</label>
     <input name="username" type="text" formControlName="username" id="username"><br>
@@ -7,3 +8,4 @@
 
     <button type="submit" [disabled]="!loginForm.valid">Log In</button>
 </form>
+<p>Don't have an account? <a [routerLink]="'/register'">Register Now!</a></p>
