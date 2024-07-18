@@ -12,6 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent {
   username: string = '';
   password: string = '';
+  allowed: boolean = true;
 
   constructor(private loginService: LoginService) {}
 
@@ -29,7 +30,7 @@ export class LoginComponent {
     this.loginService.login(request).subscribe((response: ILoginResponse) => {
       console.log(response);
     }, error => {
-      console.log("Account not available")
+      this.allowed = false;
     });
   }
 }
