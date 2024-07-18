@@ -15,7 +15,7 @@ nav {
     height: 80px;
     justify-content: center;
     align-items: center;
-    gap: 9%;
+    gap: 8%;
     padding: 0 20em;
 }
 
@@ -34,6 +34,7 @@ button {
 
 button:hover {
     background-color: $background-hover;
+    cursor: pointer;
 }
 
 .icons {
@@ -41,8 +42,10 @@ button:hover {
 }
 
 input {
-    border-radius: 10px;
+    border-radius: 15px;
     border: 0;
     font-size: 17px;
-    padding: 7px 0 7px 7px;
+    padding: 7px 12px 7px 12px;
+    background-color: rgb(120, 0, 0);
+    color: white;
 }
