@@ -24,8 +24,10 @@ app-footer {
     cursor: pointer;
 }
 
-app-login {
+app-login,
+app-register {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5em;
 }
