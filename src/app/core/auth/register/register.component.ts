@@ -15,6 +15,7 @@ export class RegisterComponent {
   lastName: string = ""
   email: string = ""
   password: string = ""
+  allowed: boolean = true;
 
   registerForm = new FormGroup({
     firstName: new FormControl(this.firstName, Validators.required),
@@ -43,7 +44,7 @@ export class RegisterComponent {
     this.registerService.login(request).subscribe((response: IRegisterResponse) => {
       console.log(response);
     }, error => {
-      console.log('ERROR');
+      this.allowed = false;
     })
   }
 }
