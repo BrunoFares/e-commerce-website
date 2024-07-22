@@ -11,6 +11,7 @@ import { CreateAdminComponent } from './core/auth/create-admin/create-admin.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NewItemComponent } from './features/new-item/component/new-item.component';
+import { HomePageComponent } from './features/home-page/component/home-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NewItemComponent } from './features/new-item/component/new-item.compone
     LoginComponent,
     RegisterComponent,
     CreateAdminComponent,
-    NewItemComponent
+    NewItemComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
