@@ -1,0 +1,102 @@
+div.title {
+    margin: 15em 0;
+
+    h1 {
+        font-size: 3em;
+        color: rgb(180, 0, 0);
+    }
+
+    h2 {
+        font-size: 2em;
+        font-weight: 100;
+    }    
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 400;
+}
+
+div.top-choices,
+div.our-story {
+    background-color: rgb(180, 0, 0);
+    border: 4px solid black;
+    border-radius: 1.5em;
+    box-shadow: 5px 5px black;
+    color: white;
+    text-align: start;
+    width: clamp(300px, 60vw, 1000px);
+    display: flex;
+    flex-direction: column;
+}
+
+div.top-choices>div,
+div.our-story>div {
+    display: flex;
+    padding: 2em 3em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+div.items {
+    display: flex;
+    justify-content: space-around;
+    gap: 6%;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        border: 3px solid black;
+        border-radius: 1.5em;
+        box-shadow: 6px 6px black;
+        padding: 1.8em 1em;
+        flex: 1 1 0;
+        justify-content: space-around;
+
+        img {
+            width: 80%;
+            height: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            border-radius: 1.5em;
+        }
+    }
+}
+
+div div.big-card-title {
+    align-items: center;
+    padding-bottom: 0;
+}
+
+img.icons {
+    height: 2.5em;
+    margin-right: 1em;
+}
+
+p.item-title {
+    font-weight: 700;
+    margin: 1em;
+}
+
+p.item-price {
+    text-align: end;
+    margin-inline-end: 1.5em;
+}
+
+div.our-story {
+    margin-top: 4em;
+
+    p {
+        margin: 2em 3em 1.5em 3em;
+    }
+
+    a {
+        margin: 0 3em 2em 3em;
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
