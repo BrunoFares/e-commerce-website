@@ -21,6 +21,11 @@ nav {
 
 div {
     display: flex;
+    height: 100%;
+}
+
+div.icons {
+    align-items: center;
 }
 
 button {
@@ -29,7 +34,7 @@ button {
     border: 0;
     font-size: 17px;
     margin-right: 1em;
-    padding: 20px 1em;
+    padding: 0 1em;
 }
 
 button:hover {
@@ -37,7 +42,7 @@ button:hover {
     cursor: pointer;
 }
 
-.icons {
+img.icons {
     margin-right: 1em;
 }
 
