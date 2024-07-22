@@ -1,12 +1,12 @@
-// @font-face {
-//     font-family: 'San Francisco';
-//     src: url('sfuitext-regular-webfont.woff') format('woff'),
-//     url('sfuitext-regular-webfont.woff2') format('woff2');
-// }
+@font-face {
+    font-family: 'San Francisco';
+    src: url('/assets/sfuitext-regular-webfont.woff') format('woff'),
+    url('/assets/sfuitext-regular-webfont.woff2') format('woff2');
+}
 
 * {
     margin: 0;
-    // font-family: 'San Francisco';
+    font-family: 'San Francisco', sans-serif;
 }
 
 app-root {
@@ -25,9 +25,14 @@ app-footer {
 }
 
 app-login,
-app-register {
+app-register,
+app-home-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 5em;
+}
+
+app-home-page {
+    text-align: center;
 }
