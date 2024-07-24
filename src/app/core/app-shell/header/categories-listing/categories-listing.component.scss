@@ -1,0 +1,28 @@
+div {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(180, 0, 0);
+    color: white;
+    font-size: 1.1em;
+    padding: 0.6em 0.8em 1em;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 5px 5px black, 5px 0 black;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    margin: 0.1em;
+    border-radius: 10px;
+    padding: 0.1em 0.5em;
+}
+
+a:first-of-type {
+    font-weight: 700;
+}
+
+a:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(180, 0, 0);
+}

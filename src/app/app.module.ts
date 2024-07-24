@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NewItemComponent } from './features/new-item/component/new-item.component';
 import { HomePageComponent } from './features/home-page/component/home-page.component';
+import { CategoriesListingComponent } from './core/app-shell/header/categories-listing/categories-listing.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomePageComponent } from './features/home-page/component/home-page.comp
     RegisterComponent,
     CreateAdminComponent,
     NewItemComponent,
-    HomePageComponent
+    HomePageComponent,
+    CategoriesListingComponent
   ],
   imports: [
     BrowserModule,

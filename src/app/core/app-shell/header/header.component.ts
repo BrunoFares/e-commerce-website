@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  displayCategories = false;
 
+  constructor() {}
+
+  displayCats() {
+    this.displayCategories = true;
+  }
+
+  hideCats() {
+    this.displayCategories = false;
+  }
 }

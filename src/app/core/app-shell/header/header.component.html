@@ -2,7 +2,16 @@
     <img src="tbs-logo.png" alt="Website logo" class="logo">
     <div>
         <button routerLink="">Home</button>
-        <button>Categories</button>
+        <div class="categories">
+            <button 
+            (mouseenter)="displayCats()" 
+            (mouseleave)="hideCats()">Categories</button>
+
+            <app-categories-listing 
+            (mouseenter)="displayCats()" 
+            (mouseleave)="hideCats()" 
+            *ngIf="displayCategories" />
+        </div>
         <button>About Us</button>
     </div>
     <input type="text">
