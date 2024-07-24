@@ -9,6 +9,12 @@
     font-family: 'San Francisco', sans-serif;
 }
 
+body {
+    background-image: url('/background.png');
+    background-attachment: fixed;
+    background-size: 50%;
+}
+
 p {
     line-height: 130%;
 }

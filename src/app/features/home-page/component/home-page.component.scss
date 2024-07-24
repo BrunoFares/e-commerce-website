@@ -1,9 +1,16 @@
+$radius: 1.5em;
+
 div.title {
     margin: 15em 0;
+    background-color: rgb(180, 0, 0);
+    padding: 3em;
+    color: white;
+    border: 0.3em solid black;
+    box-shadow: 0.4em 0.4em black;
+    border-radius: $radius;
 
     h1 {
         font-size: 3em;
-        color: rgb(180, 0, 0);
     }
 
     h2 {
@@ -21,7 +28,7 @@ div.top-choices,
 div.our-story {
     background-color: rgb(180, 0, 0);
     border: 4px solid black;
-    border-radius: 1.5em;
+    border-radius: $radius;
     box-shadow: 5px 5px black;
     color: white;
     text-align: start;
@@ -47,7 +54,7 @@ div.items {
         display: flex;
         flex-direction: column;
         border: 3px solid black;
-        border-radius: 1.5em;
+        border-radius: $radius;
         box-shadow: 6px 6px black;
         padding: 1.8em 1em;
         flex: 1 1 0;
@@ -58,7 +65,7 @@ div.items {
             height: 60%;
             object-fit: cover;
             margin: 0 auto;
-            border-radius: 1.5em;
+            border-radius: $radius;
         }
     }
 }
