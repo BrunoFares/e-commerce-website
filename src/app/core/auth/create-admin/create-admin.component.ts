@@ -10,20 +10,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrl: './create-admin.component.scss'
 })
 export class CreateAdminComponent {
-  firstName: string = ""
-  lastName: string = ""
-  email: string = ""
-  password: string = ""
   roleName: string = "admin"
 
   createAdminForm = new FormGroup({
-    firstName: new FormControl(this.firstName, Validators.required),
-    lastName: new FormControl(this.lastName, Validators.required),
-    email: new FormControl(this.email, [
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', [
       Validators.required, 
-      Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)
+      Validators.email,
     ]),
-    password: new FormControl(this.password, [
+    password: new FormControl('', [
       Validators.required, 
       Validators.minLength(8)
     ]),
@@ -33,10 +29,10 @@ export class CreateAdminComponent {
 
   onSubmit() {
     const request: ICreateAdminRequest = {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      password: this.password,
+      firstName: this.createAdminForm.value.firstName || "",
+      lastName: this.createAdminForm.value.lastName || "",
+      email: this.createAdminForm.value.email || "",
+      password: this.createAdminForm.value.password || "",
       roleName: this.roleName
     }
 

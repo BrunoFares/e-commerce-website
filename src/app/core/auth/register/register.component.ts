@@ -11,20 +11,16 @@ import { Validators } from '@angular/forms';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  firstName: string = ""
-  lastName: string = ""
-  email: string = ""
-  password: string = ""
   allowed: boolean = true;
 
   registerForm = new FormGroup({
-    firstName: new FormControl(this.firstName, Validators.required),
-    lastName: new FormControl(this.lastName, Validators.required),
-    email: new FormControl(this.email, [
+    firstName: new FormControl("", Validators.required),
+    lastName: new FormControl("", Validators.required),
+    email: new FormControl("", [
       Validators.required, 
-      Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)
+      Validators.email
     ]),
-    password: new FormControl(this.password, [
+    password: new FormControl("", [
       Validators.required, 
       Validators.minLength(8)
     ]),
@@ -34,10 +30,10 @@ export class RegisterComponent {
 
   onSubmit() {
     const request: IRegisterRequest = {
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      password: this.password,
+      firstName: this.registerForm.value.firstName || "",
+      lastName: this.registerForm.value.lastName || "",
+      email: this.registerForm.value.email || "",
+      password: this.registerForm.value.password || "",
       roleName: "user"
     }
 

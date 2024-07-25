@@ -11,21 +11,24 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  username = ''
+  password = ''
+  token = '';
+  error = '';
+  isLoading = false;
   allowed: boolean = true;
 
   constructor(private loginService: LoginService, private router: Router) {}
 
   loginForm = new FormGroup({
-    username: new FormControl(this.username, Validators.required),
-    password: new FormControl(this.password, Validators.required),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   })
 
   onSubmit(): void {
     const request: ILoginRequest = {
-      username: this.username,
-      password: this.password
+      username: this.loginForm.value.username || "",
+      password: this.loginForm.value.password || ""
     }
 
     this.loginService.login(request).subscribe((response: ILoginResponse) => {
