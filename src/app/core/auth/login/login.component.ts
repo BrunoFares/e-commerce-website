@@ -1,40 +1,45 @@
-import { Component } from '@angular/core';
-import { ILoginRequest } from './models/login-request.model';
-import { LoginService } from './services/login.service';
-import { ILoginResponse } from './models/login-response.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { AppState } from "../../../reducers/index"
+import { Store } from '@ngrx/store';
+import { noop, tap } from 'rxjs';
+import { login } from '../auth.actions';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
-  username = ''
-  password = ''
-  token = '';
-  error = '';
-  isLoading = false;
+export class LoginComponent implements OnInit {
   allowed: boolean = true;
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  form: UntypedFormGroup;
 
-  loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  })
+  constructor(private auth: AuthService,
+    private router: Router,
+    private fb: UntypedFormBuilder,
+    private store: Store<AppState>) {
+      this.form = fb.group({
+        email: ['nice.academy.student@inmind.ai', [Validators.required]],
+        password: ['topsecret', [Validators.required]]
+      })
+  }
+
+  ngOnInit() {}
 
   onSubmit(): void {
-    const request: ILoginRequest = {
-      username: this.loginForm.value.username || "",
-      password: this.loginForm.value.password || ""
-    }
+    const val = this.form.value;
 
-    this.loginService.login(request).subscribe((response: ILoginResponse) => {
-      this.router.navigateByUrl('../');
-    }, error => {
-      this.allowed = false;
-    });
+    this.auth.login(val.email, val.password).pipe(
+      tap(user => {
+        this.store.dispatch(login({user}))
+        this.router.navigateByUrl('')
+      })
+    ).subscribe(
+      noop,
+      () => alert('Login Failed')
+    )
   }
 }
