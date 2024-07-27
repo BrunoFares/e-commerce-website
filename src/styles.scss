@@ -50,6 +50,7 @@ app-home-page {
 app-categories-listing {
     position: absolute;
     top: 80px;
+    z-index: 1000;
 }
 
 app-display-item {

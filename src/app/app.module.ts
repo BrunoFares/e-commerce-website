@@ -19,6 +19,7 @@ import { CategoriesListingComponent } from './core/app-shell/header/categories-l
 import { authReducer } from './core/auth';
 import { AuthEffects } from './core/auth/auth.effects';
 import { AuthModule } from './core/auth/auth.module';
+import { DisplayItemComponent } from './features/display-item/component/display-item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthModule } from './core/auth/auth.module';
     CreateAdminComponent,
     NewItemComponent,
     HomePageComponent,
-    CategoriesListingComponent
+    CategoriesListingComponent,
+    DisplayItemComponent
   ],
   imports: [
     BrowserModule,
