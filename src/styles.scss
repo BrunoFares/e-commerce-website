@@ -51,3 +51,15 @@ app-categories-listing {
     position: absolute;
     top: 80px;
 }
+
+app-display-item {
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px) brightness(90%);
+    padding: 2em;
+    border-radius: 1em;
+    margin: 3em;
+    align-self: center;
+    width: clamp(500px, 70vw, 900px);
+    gap: 2em;
+}
