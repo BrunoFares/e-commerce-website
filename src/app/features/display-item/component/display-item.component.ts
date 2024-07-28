@@ -12,18 +12,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DisplayItemComponent {
   item!: DisplayItem;
+  itemId: string = '';
+
   quantity = 1;
   form = new FormControl('', Validators.min(1));
-
-  @Input() itemId!: string;
 
   constructor(private displayItem: DisplayItemService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.itemId = params.get('id') || "";
-      this.displayItem.getProduct(+this.itemId[1]).subscribe((response: DisplayItem) => {
-        this.item = response;
+
+      this.displayItem.getProduct(+this.itemId.substring(1))
+        .subscribe((response: DisplayItem) => {
+          this.item = response;
+          console.log(this.itemId)
       });
     })
   }
