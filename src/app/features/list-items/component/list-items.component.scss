@@ -1,0 +1,85 @@
+div.sidebar {
+    background-color: rgb(180, 0, 0);
+    border-radius: 1em;
+    border: 5px solid black;
+    box-shadow: 6px 6px black;
+    color: white;
+    padding: 10%;
+    gap: 2em;
+    font-size: 1.1em;
+    height: fit-content;
+}
+
+div.filter {
+    gap: 1em;
+}
+
+div.sort h4 {
+    margin-bottom: 1em;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+div.budget div {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+input#budget {
+    margin-bottom: 0.6em;
+}
+
+h5 {
+    margin-bottom: 0.6em;
+}
+
+div.category div,
+div.sort div {
+    display: block;
+}
+
+h1 {
+    color: rgb(180, 0, 0);
+    font-size: 2.3em;
+}
+
+div.body {
+    margin-left: 2em;
+
+    div.items {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    div.items div {
+        border: 3px solid rgb(107, 107, 107);
+        box-shadow: 4px 4px rgb(171, 171, 171);
+        border-radius: 0.7em;
+        margin-top: 1em;
+        width: 7em;
+        background-color: white;
+        padding: 1em;
+        gap: 10px;
+        flex: 1;
+        cursor: pointer;
+
+        p:nth-of-type(2) {
+            text-align: end;
+            font-weight: 700;
+        }
+    }
+
+    div.items div:hover {
+        background-color: rgb(206, 206, 206);
+    }
+}
+
+img {
+    height: 150px;
+    object-fit: cover;
+    border-radius: 1em;
+}

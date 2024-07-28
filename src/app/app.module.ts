@@ -20,6 +20,7 @@ import { authReducer } from './core/auth';
 import { AuthEffects } from './core/auth/auth.effects';
 import { AuthModule } from './core/auth/auth.module';
 import { DisplayItemComponent } from './features/display-item/component/display-item.component';
+import { ListItemsComponent } from './features/list-items/component/list-items.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DisplayItemComponent } from './features/display-item/component/display-
     NewItemComponent,
     HomePageComponent,
     CategoriesListingComponent,
-    DisplayItemComponent
+    DisplayItemComponent,
+    ListItemsComponent
   ],
   imports: [
     BrowserModule,
