@@ -1,0 +1,22 @@
+<h2>{{ this.item.title }}</h2>
+<div class="item-page">
+    <img [src]="this.item.image" alt="Item image">
+    <div class="item-info">
+        <p>{{ this.item.description }}</p>
+        <div class="bolds">
+            <p><span>Category:</span> {{ this.item.category }}</p>
+            <div class="quantity">
+                <span>Quantity:</span>
+                <input [(ngModel)]="quantity" type="number" value="1" step="1">
+                <p>${{ quantity * +this.item.price | number: '1.1-2'}} USD</p>
+            </div>
+        </div>
+        <div class="options">
+            <div class="buttons">
+                <button><img src="heart-grey-dark.png" alt="Add to favourites button"></button>
+                <button><img src="shopping-cart-grey.png" alt="Add to shopping cart button"></button>
+            </div>
+            <button>Proceed to Checkout</button>
+        </div>
+    </div>
+</div>

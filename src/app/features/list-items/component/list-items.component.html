@@ -1,0 +1,65 @@
+<div class="sidebar">
+    <div class="filter">
+        <h4>FILTER BY</h4>
+        <div class="category">
+            <h5>Category</h5>
+            <div>
+                <input type="checkbox" name="electronics" id="electronics">
+                <label for="electronics">Electronics</label>
+            </div>
+            <div>
+                <input type="checkbox" name="jewelery" id="jewelery">
+                <label for="jewelery">Jewelery</label>
+            </div>
+            <div>
+                <input type="checkbox" name="mens-clothing" id="mens-clothing">
+                <label for="mens-clothing">Men's clothing</label>
+            </div>
+            <div>
+                <input type="checkbox" name="womens-clothing" id="womens-clothing">
+                <label for="womens-clothing">Women's clothing</label>
+            </div>
+        </div>
+        <div class="budget">
+            <div>
+                <h5>Budget</h5>
+                <h5>$0 - $5000</h5>
+            </div>
+            <input type="range" id="budget">
+            <label for="budget">Set your budget, and browse items only within it.</label>
+        </div>
+    </div>
+    <div class="sort">
+        <h4>SORT BY</h4>
+        <div>
+            <input type="radio" id="alph-small">
+            <label for="alph-small">Alphabetical (A-Z)</label>
+        </div>
+        <div>
+            <input type="radio" id="alph-large">
+            <label for="alph-large">Alphabetical (Z-A)</label>
+        </div>
+        <div>
+            <input type="radio" id="price-small">
+            <label for="price-small">Price (Cheap - Expensive)</label>
+        </div>
+        <div>
+            <input type="radio" id="price-big">
+            <label for="price-big">Price (Expensive - Cheap)</label>
+        </div>
+        <div>
+            <input type="radio" id="popular">
+            <label for="popular">Most Popular</label> 
+        </div>
+    </div>
+</div>
+<div class="body">
+    <h1>All Products</h1>
+    <div class="items">
+        <div *ngFor="let item of items" routerLink="../item/:{{item.id}}">
+            <img [src]="item.image" alt="Image of item {{item.id}}">
+            <p>{{ item.title }}</p>
+            <p>${{ item.price }} USD</p>
+        </div>
+    </div>
+</div>

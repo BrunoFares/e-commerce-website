@@ -47,7 +47,29 @@ app-home-page {
     text-align: center;
 }
 
+app-list-items {
+    display: grid;
+    width: clamp(800px, 60vw, 1000px);
+    margin-top: 3em;
+    align-self: center;
+    grid-template-columns: 30% 70%;
+    margin-bottom: 5em;
+}
+
 app-categories-listing {
     position: absolute;
     top: 80px;
+    z-index: 1000;
+}
+
+app-display-item {
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px) brightness(90%);
+    padding: 2em;
+    border-radius: 1em;
+    margin: 3em;
+    align-self: center;
+    width: clamp(500px, 70vw, 900px);
+    gap: 2em;
 }
