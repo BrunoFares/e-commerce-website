@@ -17,21 +17,21 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     const ids: number[] = []
     for (let i = 0; i < 3; i++) {
-      const randNum = 1 + Math.round(Math.random() * 100000) % 20
-
+      const randNum = 1 + Math.round(Math.random() * 100000) % 20;
+      
       if (ids.includes(randNum)) {
         i--;
-        console.log(randNum + 'repeated')
         continue;
       }
 
-      // problem with repeating items
+      ids.push(randNum);
+    }
 
-      this.displayItem.getProduct(randNum)
+    ids.map(id => { this.displayItem.getProduct(id)
         .subscribe((response: DisplayItem) => {
           console.log(this.items)
           this.items.push(response);
-      });
-    }
+        })
+    })
   }
 }
