@@ -56,10 +56,12 @@
 <div class="body">
     <h1>All Products</h1>
     <div class="items">
-        <div *ngFor="let item of displayedItems" routerLink="../../item/:{{item.id}}">
-            <img [src]="item.image" alt="Image of item {{item.id}}">
-            <p>{{ item.title }}</p>
-            <p>${{ item.price }} USD</p>
-        </div>
+        @for (item of displayedItems; track item) {
+            <div [routerLink]="routing(item.id)">
+                <img [src]="item.image" alt="Image of item {{item.id}}">
+                <p>{{ item.title }}</p>
+                <p>${{ item.price }} USD</p>
+            </div>
+        }
     </div>
 </div>
