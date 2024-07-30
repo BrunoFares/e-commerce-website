@@ -43,6 +43,19 @@ export class ListItemsComponent implements OnInit {
     return this.displayedItems;
   }
 
+  routing(item: number): string {
+    this.route.paramMap.subscribe(params => {
+      this.category = params.get('category') || "";
+    })
+
+    if (this.category == '') {
+      return `../item/:${item}`
+    }
+    else {
+      return `../../item/:${item}`
+    }
+  }
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category') || "";
