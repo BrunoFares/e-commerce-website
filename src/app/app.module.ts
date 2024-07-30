@@ -33,7 +33,6 @@ import { ListItemsComponent } from './features/list-items/component/list-items.c
     NewItemComponent,
     HomePageComponent,
     CategoriesListingComponent,
-    DisplayItemComponent,
     ListItemsComponent
   ],
   imports: [

@@ -14,9 +14,9 @@ const routes: Routes = [
   { path: 'create-admin', component: CreateAdminComponent },
   { path: '', component: HomePageComponent },
   { path: 'new-item', component: NewItemComponent },
-  { path: 'item/:id', component: DisplayItemComponent},
   { path: 'products', component: ListItemsComponent },
-  { path: 'products/:category', component: ListItemsComponent }
+  { path: 'products/:category', component: ListItemsComponent },
+  { path: 'item/:id', loadComponent: () => import('./features/display-item/component/display-item.component').then(m => m.DisplayItemComponent) },
 ];
 
 @NgModule({

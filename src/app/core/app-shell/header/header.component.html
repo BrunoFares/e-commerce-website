@@ -7,10 +7,11 @@
             (mouseenter)="displayCats()" 
             (mouseleave)="hideCats()">Categories</button>
 
-            <app-categories-listing 
-            (mouseenter)="displayCats()" 
-            (mouseleave)="hideCats()" 
-            *ngIf="displayCategories" />
+            @if(displayCategories) {
+                <app-categories-listing 
+                (mouseenter)="displayCats()" 
+                (mouseleave)="hideCats()" />
+            }
             
         </div>
         <button>About Us</button>
