@@ -43,7 +43,7 @@ div.sort div {
 
 h1 {
     color: rgb(180, 0, 0);
-    font-size: 2.3em;
+    font-size: 2.5em;
 }
 
 div.body {
@@ -57,7 +57,6 @@ div.body {
 
     div.items div {
         border: 3px solid rgb(107, 107, 107);
-        box-shadow: 4px 4px rgb(171, 171, 171);
         border-radius: 0.7em;
         margin-top: 1em;
         width: 7em;
@@ -74,7 +73,12 @@ div.body {
     }
 
     div.items div:hover {
-        background-color: rgb(206, 206, 206);
+        animation-duration: 0.2s;
+        animation-name: slidein;
+        animation-direction: alternate;
+        box-shadow: 5px 5px rgb(171, 171, 171);
+        animation-fill-mode: forwards;
+        cursor: pointer;
     }
 }
 
@@ -82,4 +86,26 @@ img {
     height: 150px;
     object-fit: cover;
     border-radius: 1em;
+}
+
+@keyframes slideout {
+    from {
+        translate: -1% -1%;
+        scale: 100% 1;
+    }
+  
+    to {
+        translate: 0 0;
+    }
+}
+
+@keyframes slidein {
+    from {
+      translate: 0 0;
+    }
+  
+    to {
+      translate: -2% -2%;
+      scale: 100% 1;
+    }
 }

@@ -1,9 +1,9 @@
 <nav>
-    <img src="tbs-logo.png" alt="Website logo" class="logo">
+    <img src="tbs-logo.png" alt="Website logo" routerLink="" class="logo">
     <div>
         <button routerLink="">Home</button>
         <div class="categories">
-            <button routerLink="../categories"
+            <button routerLink="../products"
             (mouseenter)="displayCats()" 
             (mouseleave)="hideCats()">Categories</button>
 
@@ -11,6 +11,7 @@
             (mouseenter)="displayCats()" 
             (mouseleave)="hideCats()" 
             *ngIf="displayCategories" />
+            
         </div>
         <button>About Us</button>
     </div>

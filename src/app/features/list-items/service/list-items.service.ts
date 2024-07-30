@@ -12,7 +12,12 @@ export class ListItemsService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<ListItems[]> {
-    return this.http.get<ListItems[]>(`${this.fakeApi}/products`);
+  getProductsFromCat(category: string): Observable<ListItems[]> {
+    if (category == '') {
+      return this.http.get<ListItems[]>(`${this.fakeApi}/products`);
+    }
+    else {
+      return this.http.get<ListItems[]>(`${this.fakeApi}/products/category/${category}`);
+    }
   }
 }
