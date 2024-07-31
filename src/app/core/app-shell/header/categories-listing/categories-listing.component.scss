@@ -9,6 +9,20 @@ div {
     box-shadow: 5px 5px black, 5px 0 black;
 }
 
+div {
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+
+    @keyframes open {
+        from {
+            scale: 0 0;
+        }
+        to {
+            scale: 100% 1;
+        }
+    }
+}
+
 a {
     cursor: pointer;
     text-decoration: none;

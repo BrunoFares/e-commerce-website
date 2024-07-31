@@ -1,14 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { DisplayItem } from '../model/display-item.model';
 import { DisplayItemService } from '../service/display-item.service';
-import { FormControl, Validators } from '@angular/forms';
-import { DecimalPipe } from '@angular/common';
+import { FormControl, FormsModule, NgModel, Validators } from '@angular/forms';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-display-item',
   templateUrl: './display-item.component.html',
-  styleUrl: './display-item.component.scss'
+  styleUrl: './display-item.component.scss',
+  standalone: true,
+  imports: [CommonModule, FormsModule]
 })
 export class DisplayItemComponent {
   item!: DisplayItem;
@@ -17,7 +19,8 @@ export class DisplayItemComponent {
   quantity = 1;
   form = new FormControl('', Validators.min(1));
 
-  constructor(private displayItem: DisplayItemService, private route: ActivatedRoute) {}
+  displayItem = inject(DisplayItemService)
+  route = inject(ActivatedRoute)
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

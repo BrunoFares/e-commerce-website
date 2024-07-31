@@ -55,10 +55,11 @@ div.items {
         flex-direction: column;
         border: 3px solid black;
         border-radius: $radius;
-        box-shadow: 6px 6px black;
         padding: 1.8em 1em;
         flex: 1 1 0;
         justify-content: space-around;
+        animation-name: slideout;
+        animation-duration: 0.2s;
 
         img {
             width: 90%;
@@ -68,11 +69,37 @@ div.items {
             border-radius: $radius;
         }
     }
-}
 
-div.items div:hover {
-    background-color: rgb(120, 0, 0);
-    cursor: pointer;
+    div:hover {
+        animation-duration: 0.2s;
+        animation-name: slidein;
+        animation-direction: alternate;
+        box-shadow: 6px 6px black;
+        animation-fill-mode: forwards;
+        cursor: pointer;
+    }
+    
+    @keyframes slideout {
+        from {
+            translate: -2% -2%;
+            scale: 100% 1;
+        }
+      
+        to {
+            translate: 0 0;
+        }
+    }
+
+    @keyframes slidein {
+        from {
+          translate: 0 0;
+        }
+      
+        to {
+          translate: -2% -2%;
+          scale: 100% 1;
+        }
+    }
 }
 
 div div.big-card-title {
