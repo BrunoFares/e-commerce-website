@@ -21,6 +21,13 @@ import { AuthEffects } from './core/auth/auth.effects';
 import { AuthModule } from './core/auth/auth.module';
 import { DisplayItemComponent } from './features/display-item/component/display-item.component';
 import { ListItemsComponent } from './features/list-items/component/list-items.component';
+import { AdminDashboardComponent } from './features/admin-dashboard/main/admin-dashboard.component';
+import { HeaderDashboardComponent } from './features/admin-dashboard/header-dashboard/header-dashboard/header-dashboard.component';
+import { AboutUsComponent } from './features/about-us/about-us.component';
+import { ShoppingCartComponent } from './features/shopping-cart/component/shopping-cart.component';
+import { AgGridAngular } from 'ag-grid-angular';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-quartz.css';
 
 @NgModule({
   declarations: [
@@ -33,12 +40,17 @@ import { ListItemsComponent } from './features/list-items/component/list-items.c
     NewItemComponent,
     HomePageComponent,
     CategoriesListingComponent,
-    ListItemsComponent
+    ListItemsComponent,
+    AdminDashboardComponent,
+    HeaderDashboardComponent,
+    AboutUsComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    AgGridAngular,
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({}),

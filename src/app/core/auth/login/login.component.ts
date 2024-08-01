@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
     private fb: UntypedFormBuilder,
     private store: Store<AppState>) {
       this.form = fb.group({
-        email: ['nice.academy.student@inmind.ai', [Validators.required]],
-        password: ['topsecret', [Validators.required]]
+        email: ['faresbruno04@gmail.com', [Validators.required]],
+        password: ['password123', [Validators.required]]
       })
   }
 

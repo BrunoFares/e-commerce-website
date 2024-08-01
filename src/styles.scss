@@ -13,6 +13,7 @@ body {
     background-image: url('/background.png');
     background-attachment: fixed;
     background-size: 50%;
+    backdrop-filter: blur(4px);
 }
 
 p {
@@ -36,15 +37,29 @@ app-footer {
 
 app-login,
 app-register,
-app-home-page {
+app-home-page,
+app-about-us {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 5em;
 }
 
+app-shopping-cart {
+    display: flex;
+    flex-direction: column;
+    width: clamp(800px, 60vw, 1000px);
+    align-self: center;
+    margin-bottom: 5em;
+}
+
 app-home-page {
     text-align: center;
+}
+
+app-about-us {
+    width: clamp(800px, 60vw, 1000px);
+    align-self: center;
 }
 
 app-list-items {
@@ -65,7 +80,7 @@ app-categories-listing {
 app-display-item {
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(10px) brightness(90%);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 2em;
     border-radius: 1em;
     margin: 3em;

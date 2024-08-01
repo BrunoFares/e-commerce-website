@@ -7,6 +7,9 @@ import { HomePageComponent } from './features/home-page/component/home-page.comp
 import { NewItemComponent } from './features/new-item/component/new-item.component';
 import { DisplayItemComponent } from './features/display-item/component/display-item.component';
 import { ListItemsComponent } from './features/list-items/component/list-items.component';
+import { AdminDashboardComponent } from './features/admin-dashboard/main/admin-dashboard.component';
+import { AboutUsComponent } from './features/about-us/about-us.component';
+import { ShoppingCartComponent } from './features/shopping-cart/component/shopping-cart.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +20,9 @@ const routes: Routes = [
   { path: 'products', component: ListItemsComponent },
   { path: 'products/:category', component: ListItemsComponent },
   { path: 'item/:id', loadComponent: () => import('./features/display-item/component/display-item.component').then(m => m.DisplayItemComponent) },
+  { path: 'dashboard', component: AdminDashboardComponent },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'shopping-cart', component: ShoppingCartComponent }
 ];
 
 @NgModule({
