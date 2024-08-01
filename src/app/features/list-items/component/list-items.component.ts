@@ -18,7 +18,11 @@ export class ListItemsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, private listItems: ListItemsService) {}
 
   filt(filt: string) {
-
+    if (filt == '') {
+      this.displayedItems = this.originalItems;
+      return this.displayedItems;
+    }
+    
     if (this.catFilters.indexOf(filt) != -1) {
       this.catFilters.splice(this.catFilters?.indexOf(filt), 1);
     }
@@ -26,7 +30,6 @@ export class ListItemsComponent implements OnInit {
       this.catFilters.push(filt);
     }
     
-    this.displayedItems = this.originalItems;
     this.displayedItems = this.originalItems.filter(item => {
       if (this.catFilters.length === 0) {
         return true;
@@ -44,10 +47,6 @@ export class ListItemsComponent implements OnInit {
   }
 
   routing(item: number): string {
-    this.route.paramMap.subscribe(params => {
-      this.category = params.get('category') || "";
-    })
-
     if (this.category == '') {
       return `../item/:${item}`
     }
@@ -59,12 +58,38 @@ export class ListItemsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category') || "";
+      const catName = this.category.substring(1);
+
+      if (this.category !== '') {
+        let name = catName;
+
+        if (catName === "men's%20clothing") {
+          this.catFilters.push("men's clothing");
+          name = "mens-clothing";
+        } 
+        else if (catName === "women's%20clothing") {
+          this.catFilters.push("women's clothing");
+          name = "womens-clothing";
+        }
+        else {
+          this.catFilters.push(name);
+        }
+        
+        let input: HTMLInputElement | null = document.querySelector(`input#${name}`);
+        input!.checked = true;
+      }
       
-      this.listItems.getProductsFromCat(this.category.substring(1))
+      this.listItems.getProductsFromCat(catName)
         .subscribe((response: ListItems[]) => {
-          this.originalItems = response;
           this.displayedItems = response;
       });
     })
+    
+    if (this.originalItems === undefined) {
+      this.listItems.getProductsFromCat('')
+        .subscribe((response: ListItems[]) => {
+          this.originalItems = response;
+      });
+    }
   }
 }
