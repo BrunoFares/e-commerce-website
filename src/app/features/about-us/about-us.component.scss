@@ -1,0 +1,61 @@
+div.title {
+    margin: 8em 0;
+    background-color: rgb(180, 0, 0);
+    padding: 3em;
+    color: white;
+    border: 0.3em solid black;
+    box-shadow: 0.4em 0.4em black;
+    border-radius: 1.5em;
+    text-align: center;
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2em;
+        font-weight: 100;
+    }    
+}
+
+p {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+div.quote {
+    margin: 6em;
+    padding: 2.5em;
+    display: flex;
+    background-color: rgb(180, 0, 0);
+    color: white;
+    align-items: center;
+    border: 0.3em solid black;
+    box-shadow: 0.4em 0.4em black;
+    border-radius: 1.5em;
+
+    div {
+        width: auto;
+    }
+
+    img {
+        height: 20em;
+    }
+
+    p:first-of-type {
+        font-weight: 700;
+        font-size: 2em;
+        margin: 0;
+    }
+
+    p:nth-of-type(2) {
+        text-align: start;
+        width: 160px;
+        margin: 0 0 0 5em;
+        font-style: italic;
+    }
+}
+
+p {
+    margin: 0.2em 0;
+}
