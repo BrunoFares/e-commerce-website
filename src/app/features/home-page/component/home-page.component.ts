@@ -29,7 +29,6 @@ export class HomePageComponent implements OnInit {
 
     ids.map(id => { this.displayItem.getProduct(id)
         .subscribe((response: DisplayItem) => {
-          console.log(this.items)
           this.items.push(response);
         })
     })

@@ -1,103 +1,103 @@
 {
-  "hash": "fcc00c23",
-  "configHash": "f3d127a7",
+  "hash": "b18c88eb",
+  "configHash": "35289005",
   "lockfileHash": "72867b37",
-  "browserHash": "30b54216",
+  "browserHash": "76cc5725",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "e3de60a5",
+      "fileHash": "b078204a",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "aaf7ddb4",
+      "fileHash": "5389205d",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "1885dc21",
+      "fileHash": "1f73091a",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "4e55475c",
+      "fileHash": "41ca64b7",
       "needsInterop": false
     },
     "@angular/material/button": {
       "src": "../../../../../node_modules/@angular/material/fesm2022/button.mjs",
       "file": "@angular_material_button.js",
-      "fileHash": "a9848a92",
+      "fileHash": "d041fc6d",
       "needsInterop": false
     },
     "@angular/material/card": {
       "src": "../../../../../node_modules/@angular/material/fesm2022/card.mjs",
       "file": "@angular_material_card.js",
-      "fileHash": "2105e7aa",
+      "fileHash": "2de49aaa",
       "needsInterop": false
     },
     "@angular/material/input": {
       "src": "../../../../../node_modules/@angular/material/fesm2022/input.mjs",
       "file": "@angular_material_input.js",
-      "fileHash": "2e52f1b9",
+      "fileHash": "d14fb9be",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "d5e4391c",
+      "fileHash": "b8e07216",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "3369016c",
+      "fileHash": "fae04c9f",
       "needsInterop": false
     },
     "@ngrx/effects": {
       "src": "../../../../../node_modules/@ngrx/effects/fesm2022/ngrx-effects.mjs",
       "file": "@ngrx_effects.js",
-      "fileHash": "4be7423b",
+      "fileHash": "ff3b00d2",
       "needsInterop": false
     },
     "@ngrx/store": {
       "src": "../../../../../node_modules/@ngrx/store/fesm2022/ngrx-store.mjs",
       "file": "@ngrx_store.js",
-      "fileHash": "e9667fdd",
-      "needsInterop": false
-    },
-    "rxjs": {
-      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
-      "file": "rxjs.js",
-      "fileHash": "f57b0ad0",
+      "fileHash": "aff7df2f",
       "needsInterop": false
     },
     "ag-grid-angular": {
       "src": "../../../../../node_modules/ag-grid-angular/fesm2022/ag-grid-angular.mjs",
       "file": "ag-grid-angular.js",
-      "fileHash": "40d42241",
+      "fileHash": "dac35477",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "1c34566b",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-DAVWPJM3": {
-      "file": "chunk-DAVWPJM3.js"
-    },
     "chunk-5RR4LY36": {
       "file": "chunk-5RR4LY36.js"
+    },
+    "chunk-MGHGIXRM": {
+      "file": "chunk-MGHGIXRM.js"
+    },
+    "chunk-DAVWPJM3": {
+      "file": "chunk-DAVWPJM3.js"
     },
     "chunk-SV36TQ4W": {
       "file": "chunk-SV36TQ4W.js"
     },
     "chunk-LSY3H5U7": {
       "file": "chunk-LSY3H5U7.js"
-    },
-    "chunk-MGHGIXRM": {
-      "file": "chunk-MGHGIXRM.js"
     },
     "chunk-RURLEJOV": {
       "file": "chunk-RURLEJOV.js"

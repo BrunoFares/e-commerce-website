@@ -28,6 +28,8 @@ import { ShoppingCartComponent } from './features/shopping-cart/component/shoppi
 import { AgGridAngular } from 'ag-grid-angular';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
+import { AccountInfoComponent } from './features/account-info/account-info.component';
+import { ChangePassComponent } from './features/account-info/change-pass/component/change-pass.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import 'ag-grid-community/styles/ag-theme-quartz.css';
     AdminDashboardComponent,
     HeaderDashboardComponent,
     AboutUsComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    AccountInfoComponent,
+    ChangePassComponent,
   ],
   imports: [
     BrowserModule,

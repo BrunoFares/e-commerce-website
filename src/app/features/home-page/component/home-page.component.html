@@ -8,7 +8,7 @@
         <h3>Top choices right now</h3>
     </div>
     <div class="items">
-        <div *ngFor="let item of items; trackby: item" routerLink="item/:{{ item.id }}">
+        <div *ngFor="let item of items" routerLink="item/:{{ item.id }}">
             <img [src]="item.image" alt="Item Image">
             <p class="item-title">{{ item.title }}</p>
             <p class="item-price">{{ '$' + item.price.toLocaleString() }}</p>

@@ -13,7 +13,7 @@ body {
     background-image: url('/background.png');
     background-attachment: fixed;
     background-size: 50%;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(3px);
 }
 
 p {
@@ -38,28 +38,22 @@ app-footer {
 app-login,
 app-register,
 app-home-page,
-app-about-us {
+app-about-us,
+app-shopping-cart,
+app-display-item,
+app-account-info,
+app-change-pass {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 5em;
-}
-
-app-shopping-cart {
-    display: flex;
-    flex-direction: column;
-    width: clamp(800px, 60vw, 1000px);
+    width: clamp(500px, 70vw, 900px);
     align-self: center;
-    margin-bottom: 5em;
 }
 
-app-home-page {
-    text-align: center;
-}
-
-app-about-us {
-    width: clamp(800px, 60vw, 1000px);
-    align-self: center;
+app-shopping-cart,
+app-account-info {
+    align-items: normal;
 }
 
 app-list-items {
@@ -71,6 +65,10 @@ app-list-items {
     margin-bottom: 5em;
 }
 
+app-home-page {
+    text-align: center;
+}
+
 app-categories-listing {
     position: absolute;
     top: 80px;
@@ -78,13 +76,16 @@ app-categories-listing {
 }
 
 app-display-item {
-    display: flex;
-    flex-direction: column;
     background-color: rgba(0, 0, 0, 0.1);
     padding: 2em;
     border-radius: 1em;
     margin: 3em;
-    align-self: center;
-    width: clamp(500px, 70vw, 900px);
     gap: 2em;
+    align-items: start;
+}
+
+@media screen and (max-width: 600px) {
+    app-header {
+        align-self: center;
+    }   
 }

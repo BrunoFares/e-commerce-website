@@ -1,9 +1,10 @@
 import { createAction, props } from "@ngrx/store";
 import { User } from "./user.model";
+import { LoginResponse } from "./login/model/login-response.model";
 
 export const login = createAction(
     "[Login Page] User Login",
-    props<{user: User}>()
+    props<{user: LoginResponse}>()
 )
 
 export const logout = createAction(
