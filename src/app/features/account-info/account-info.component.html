@@ -1,0 +1,16 @@
+<h1>My Account</h1>
+<div class="body">
+    <div>
+        <p>Email:</p>
+        <p>First Name:</p>
+        <p>Last Name:</p>
+        <p>Password:</p>
+    </div>
+    <div>
+        <p>{{ user.email }}</p>
+        <p>{{ user.given_name }}</p>
+        <p>{{ user.family_name }}</p>
+        <p>********</p>
+    </div>
+</div>
+<button routerLink="change-pass">Change my Password</button>
