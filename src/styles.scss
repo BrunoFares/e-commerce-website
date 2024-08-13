@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'San Francisco';
     src: url('/sfuitext-regular-webfont.woff') format('woff'),
-    url('/sfuitext-regular-webfont.woff2') format('woff2');
+        url('/sfuitext-regular-webfont.woff2') format('woff2');
 }
 
 * {
@@ -75,8 +75,9 @@ app-categories-listing {
     z-index: 1000;
 }
 
-app-display-item {
-    background-color: rgba(0, 0, 0, 0.1);
+app-display-item,
+app-account-info {
+    background-color: rgba(0, 0, 0, 0.13);
     padding: 2em;
     border-radius: 1em;
     margin: 3em;
@@ -87,5 +88,5 @@ app-display-item {
 @media screen and (max-width: 600px) {
     app-header {
         align-self: center;
-    }   
+    }
 }

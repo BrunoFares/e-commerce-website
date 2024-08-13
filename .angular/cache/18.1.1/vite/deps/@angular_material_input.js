@@ -16,7 +16,7 @@ import {
   coerceNumberProperty,
   getSupportedInputTypes,
   normalizePassiveListenerOptions
-} from "./chunk-MGHGIXRM.js";
+} from "./chunk-NPKFP3WB.js";
 import {
   CommonModule,
   DOCUMENT,

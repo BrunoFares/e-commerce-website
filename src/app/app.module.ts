@@ -16,9 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewItemComponent } from './features/new-item/component/new-item.component';
 import { HomePageComponent } from './features/home-page/component/home-page.component';
 import { CategoriesListingComponent } from './core/app-shell/header/categories-listing/categories-listing.component';
-import { authReducer } from './core/auth';
-import { AuthEffects } from './core/auth/auth.effects';
-import { AuthModule } from './core/auth/auth.module';
+import { authReducer } from './core/auth/auth-user';
+import { AuthEffects } from './core/auth/auth-user/auth.effects';
+import { AuthModule } from './core/auth/auth-user/auth.module';
 import { DisplayItemComponent } from './features/display-item/component/display-item.component';
 import { ListItemsComponent } from './features/list-items/component/list-items.component';
 import { AdminDashboardComponent } from './features/admin-dashboard/main/admin-dashboard.component';
@@ -30,6 +30,7 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
 import { AccountInfoComponent } from './features/account-info/account-info.component';
 import { ChangePassComponent } from './features/account-info/change-pass/component/change-pass.component';
+import { AuthAdminModule } from './core/auth/auth-admin/auth-admin.module';
 
 @NgModule({
   declarations: [
@@ -58,11 +59,12 @@ import { ChangePassComponent } from './features/account-info/change-pass/compone
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({}),
-    StoreModule.forRoot({ login: authReducer}),
-    RouterModule.forChild([{path: 'login', component: LoginComponent}]),
+    StoreModule.forRoot({ login: authReducer }),
+    RouterModule.forChild([{ path: 'login', component: LoginComponent }]),
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([AuthEffects]),
     AuthModule,
+    AuthAdminModule,
     EffectsModule.forRoot(AuthEffects),
     EffectsModule.forFeature(AuthEffects)
   ],

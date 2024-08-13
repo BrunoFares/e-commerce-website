@@ -10,9 +10,10 @@ import { ListItemsComponent } from './features/list-items/component/list-items.c
 import { AdminDashboardComponent } from './features/admin-dashboard/main/admin-dashboard.component';
 import { AboutUsComponent } from './features/about-us/about-us.component';
 import { ShoppingCartComponent } from './features/shopping-cart/component/shopping-cart.component';
-import { AuthGuard } from './core/auth/auth.guard';
+import { AuthGuard } from './core/auth/auth-user/auth.guard';
 import { AccountInfoComponent } from './features/account-info/account-info.component';
 import { ChangePassComponent } from './features/account-info/change-pass/component/change-pass.component';
+import { AuthAdminGuard } from './core/auth/auth-admin/auth-admin.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,12 +24,11 @@ const routes: Routes = [
   { path: 'products', component: ListItemsComponent },
   { path: 'products/:category', component: ListItemsComponent },
   { path: 'item/:id', loadComponent: () => import('./features/display-item/component/display-item.component').then(m => m.DisplayItemComponent) },
-  { path: 'dashboard', component: AdminDashboardComponent },
+  { path: 'dashboard', component: AdminDashboardComponent, canActivate: [AuthAdminGuard] },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent, canActivate: [AuthGuard] },
-  { path: 'account', component: AccountInfoComponent, canActivate: [AuthGuard] },
-  { path: 'account/change-pass', component: ChangePassComponent }
-
+  { path: 'account', component: AccountInfoComponent, canActivate: [AuthGuard, AuthAdminGuard] },
+  { path: 'account/change-pass', component: ChangePassComponent, canActivate: [AuthGuard, AuthAdminGuard] }
 ];
 
 @NgModule({
