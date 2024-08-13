@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { Validators, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthAdminService } from '../auth-admin/auth-admin.service';
 import { AppState } from "../../../reducers/index"
 import { Store } from '@ngrx/store';
 import { noop, tap } from 'rxjs';
-import { login } from '../auth.actions';
+import { loginAdmin } from '../auth-admin/auth-admin.actions';
+import { login } from '../auth-user/auth.actions';
 import { LoginResponse } from './model/login-response.model';
+import { parseJwt } from '../../../shared/utils/jwtParser';
 
 @Component({
   selector: 'app-login',
@@ -15,29 +17,37 @@ import { LoginResponse } from './model/login-response.model';
 })
 export class LoginComponent implements OnInit {
   allowed: boolean = true;
-  loggedUser!: LoginResponse;
+  loggedUser!: any;
   form: UntypedFormGroup;
 
-  constructor(private auth: AuthService,
+  constructor(private auth: AuthAdminService,
     private router: Router,
     private fb: UntypedFormBuilder,
     private store: Store<AppState>) {
-      this.form = fb.group({
-        email: ['faresbruno04@gmail.com', [Validators.required]],
-        password: ['password123', [Validators.required]]
-      })
+    this.form = fb.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    })
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onSubmit(): void {
     const val = this.form.value;
 
     this.auth.login(val.email, val.password).pipe(
-      tap(user => {
-        this.loggedUser = user;
-        this.store.dispatch(login({user}))
-        this.router.navigateByUrl('')
+      tap((user: any) => {
+        this.loggedUser = JSON.stringify(parseJwt(user.Login.AccessToken));
+        localStorage.setItem('jwtUser', this.loggedUser);
+
+        if (JSON.parse(this.loggedUser).realm_access.roles.includes('Admin')) {
+          this.store.dispatch(loginAdmin({ user }))
+          this.router.navigateByUrl('dashboard')
+        }
+        else {
+          this.store.dispatch(login({ user }))
+          this.router.navigateByUrl('')
+        }
       })
     ).subscribe(
       noop,

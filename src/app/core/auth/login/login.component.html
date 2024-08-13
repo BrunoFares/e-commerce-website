@@ -1,13 +1,16 @@
 <h1>Log In to your Big Shop account!</h1>
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <label for="email">Email</label>
-    <input name="email" type="text" formControlName="email" id="email"><br>
+<div>
+    <img src="tbs-logo.png" alt="The Big Shop logo">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <label for="email">Email</label>
+        <input name="email" type="text" formControlName="email" id="email"><br>
 
-    <label for="loginPass">Password</label>
-    <input name="password" type="password" formControlName="password" id="loginPass"><br>
+        <label for="loginPass">Password</label>
+        <input name="password" type="password" formControlName="password" id="loginPass"><br>
 
-    <p *ngIf="!allowed">Incorrect email or password.</p>
+        <p *ngIf="!allowed">Incorrect email or password.</p>
 
-    <button type="submit" [disabled]="!form.valid">Log In</button>
-</form>
+        <button type="submit" [disabled]="!form.valid">Log In</button>
+    </form>
+</div>
 <p>Don't have an account? <a [routerLink]="'../register'">Register Now!</a></p>
