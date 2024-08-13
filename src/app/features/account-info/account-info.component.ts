@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { parseJwt } from '../../shared/utils/jwtParser';
+import { LogoutService } from './logout/logout.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-info',
@@ -6,20 +9,37 @@ import { Component } from '@angular/core';
   styleUrl: './account-info.component.scss'
 })
 export class AccountInfoComponent {
-  access = JSON.parse(localStorage['user']).Login.AccessToken;
+  accessToken!: string;
+  refreshToken!: string;
   user!: any;
+  userIsAdmin!: any
 
-  ngOnInit() {
-    this.user = this.parseJwt(this.access);
+  constructor(private logoutService: LogoutService, private router: Router) { }
+
+  onLogout() {
+    this.logoutService.logout(this.accessToken, this.refreshToken);
+
+    if (this.userIsAdmin) {
+      localStorage.removeItem('admin');
+    } else {
+      localStorage.removeItem('user');
+    }
+    localStorage.removeItem('jwtUser');
+
+    this.router.navigateByUrl('login');
   }
 
-  parseJwt(token: string) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    return JSON.parse(jsonPayload);
+  ngOnInit() {
+    if (localStorage.getItem('admin') === null) {
+      this.accessToken = JSON.parse(localStorage['user']).Login.AccessToken;
+      this.refreshToken = JSON.parse(localStorage['user']).Login.RefreshToken;
+    }
+    else {
+      this.userIsAdmin = true;
+      this.accessToken = JSON.parse(localStorage['admin']).Login.AccessToken;
+      this.refreshToken = JSON.parse(localStorage['admin']).Login.RefreshToken;
+    }
+    this.user = parseJwt(this.accessToken);
+    console.log(this.user);
   }
 }

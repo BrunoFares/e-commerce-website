@@ -10,7 +10,10 @@
         <p>{{ user.email }}</p>
         <p>{{ user.given_name }}</p>
         <p>{{ user.family_name }}</p>
-        <p>********</p>
+        <div class="pass">
+            <p>********</p>
+            <button routerLink="change-pass">Change my <br>Password</button>
+        </div>
     </div>
 </div>
-<button routerLink="change-pass">Change my Password</button>
+<button (click)="onLogout()">Log Out</button>

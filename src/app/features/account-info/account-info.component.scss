@@ -14,23 +14,50 @@ div.body {
 
 h1 {
     color: rgb(180, 0, 0);
-    margin: 2em 0 1em;
 }
 
 button {
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(180, 0, 0);
+    color: white;
     align-self: flex-end;
-    font-size: 0.9em;
     border: 0;
+    margin-left: 1em;
+    margin-top: 0;
     padding: 0.7em 2em;
     border-radius: 0.7em;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 button:hover {
-    background-color: rgb(203, 203, 203);
+    background-color: rgb(255, 255, 255);
+    color: rgb(180, 0, 0);
 }
 
 button:hover:active {
-    background-color: rgb(184, 184, 184);
+    background-color: rgb(234, 234, 234);
+}
+
+div.pass {
+    display: flex;
+    align-items: start;
+
+    p {
+        margin: 0;
+    }
+
+    button {
+        background-color: rgb(197, 197, 197);
+        color: black;
+    }
+
+    button:hover {
+        background-color: rgb(168, 168, 168);
+        color: black;
+    }
+
+    button:hover:active {
+        background-color: rgb(144, 144, 144);
+        color: black;
+    }
 }
