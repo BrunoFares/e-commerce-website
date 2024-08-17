@@ -15,6 +15,26 @@
         </div>
     </div>
 </div>
+<div class="slideshow">
+    <div *ngIf="slideShow[0]">
+        <h3>Look good, Feel good.</h3>
+        <button (click)="slide(-1)">◀</button>
+        <button (click)="slide(1)">▶</button>
+        <img src="stock-images/friends.jpg" alt="">
+    </div>
+    <div *ngIf="slideShow[1]">
+        <h3>The Best Hardware for your Greatest Ambitions.</h3>
+        <button (click)="slide(-1)">◀</button>
+        <button (click)="slide(1)">▶</button>
+        <img src="stock-images/programmer.jpg" alt="">
+    </div>
+    <div *ngIf="slideShow[2]">
+        <h3>Elegance.</h3>
+        <button (click)="slide(-1)">◀</button>
+        <button (click)="slide(1)">▶</button>
+        <img src="stock-images/woman.jpg" alt="">
+    </div>
+</div>
 <div class="our-story">
     <div class="big-card-title">
         <img src="our-story.png" alt="Story icon" class="icons">

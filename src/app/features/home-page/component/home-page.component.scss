@@ -16,7 +16,7 @@ div.title {
     h2 {
         font-size: 2em;
         font-weight: 100;
-    }    
+    }
 }
 
 h3 {
@@ -78,13 +78,13 @@ div.items {
         animation-fill-mode: forwards;
         cursor: pointer;
     }
-    
+
     @keyframes slideout {
         from {
             translate: -1% -1%;
             scale: 100% 1;
         }
-      
+
         to {
             translate: 0 0;
         }
@@ -92,12 +92,12 @@ div.items {
 
     @keyframes slidein {
         from {
-          translate: 0 0;
+            translate: 0 0;
         }
-      
+
         to {
-          translate: -1% -1%;
-          scale: 100% 1;
+            translate: -1% -1%;
+            scale: 100% 1;
         }
     }
 }
@@ -130,6 +130,7 @@ div.our-story {
     }
 
     a {
+        align-self: flex-start;
         margin: 0 3em 2em 3em;
         color: white;
         text-decoration: none;
@@ -137,5 +138,69 @@ div.our-story {
 
     a:hover {
         text-decoration: underline;
+    }
+}
+
+div.slideshow {
+    position: relative;
+    display: inline-block;
+    width: clamp(300px, 60vw, 1000px);
+    background-color: black;
+    border-radius: $radius;
+    margin-top: 3em;
+
+    img {
+        width: 100%;
+        border-radius: $radius;
+    }
+
+    h3 {
+        text-align: start;
+        color: white;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 0px 15px 15px 15px;
+        padding: 1em;
+        top: 70%;
+        animation-duration: 0.1s;
+        animation-name: open;
+        animation-fill-mode: forwards;
+        transform-origin: left;
+    }
+
+    button {
+        color: white;
+        position: absolute;
+        border: 0;
+        font-size: 1.3em;
+        padding: 1.5em 0.5em;
+        border-radius: 0px 15px 15px 0px;
+        background-color: rgba(0, 0, 0, 0.6);
+        top: 40%;
+    }
+
+    button:nth-of-type(even) {
+        right: 0;
+        border-radius: 15px 0px 0px 15px;
+    }
+
+    button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    button:hover:active {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+@keyframes open {
+    from {
+        translate: scale(0);
+        scale: 0 1;
+    }
+
+    to {
+        translate: scale(1);
+        scale: 1 100%;
     }
 }

@@ -11,14 +11,26 @@ import { DecimalPipe } from '@angular/common';
 })
 export class HomePageComponent implements OnInit {
   items: DisplayItem[] = [];
+  slideShow = [true, false, false];
 
-  constructor(private displayItem: DisplayItemService) {}
+  slide(num: number) {
+    let i;
+    for (i = 0; i < 3; i++) {
+      if (this.slideShow[i]) break;
+    }
+    for (let j = 0; j < 3; j++) {
+      this.slideShow[j] = false;
+    }
+    this.slideShow[((i + num) + 3) % 3] = true;
+  }
+
+  constructor(private displayItem: DisplayItemService) { }
 
   ngOnInit() {
     const ids: number[] = []
     for (let i = 0; i < 3; i++) {
       const randNum = 1 + Math.round(Math.random() * 100000) % 20;
-      
+
       if (ids.includes(randNum)) {
         i--;
         continue;
@@ -27,10 +39,15 @@ export class HomePageComponent implements OnInit {
       ids.push(randNum);
     }
 
-    ids.map(id => { this.displayItem.getProduct(id)
+    ids.map(id => {
+      this.displayItem.getProduct(id)
         .subscribe((response: DisplayItem) => {
           this.items.push(response);
         })
     })
+
+    setInterval(() => {
+      this.slide(1);
+    }, 5000)
   }
 }
