@@ -22,7 +22,6 @@ import { AuthModule } from './core/auth/auth-user/auth.module';
 import { DisplayItemComponent } from './features/display-item/component/display-item.component';
 import { ListItemsComponent } from './features/list-items/component/list-items.component';
 import { AdminDashboardComponent } from './features/admin-dashboard/main/admin-dashboard.component';
-import { HeaderDashboardComponent } from './features/admin-dashboard/header-dashboard/header-dashboard/header-dashboard.component';
 import { AboutUsComponent } from './features/about-us/about-us.component';
 import { ShoppingCartComponent } from './features/shopping-cart/component/shopping-cart.component';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -31,6 +30,7 @@ import 'ag-grid-community/styles/ag-theme-quartz.css';
 import { AccountInfoComponent } from './features/account-info/account-info.component';
 import { ChangePassComponent } from './features/account-info/change-pass/component/change-pass.component';
 import { AuthAdminModule } from './core/auth/auth-admin/auth-admin.module';
+import { FavouritesComponent } from './features/favourites/favourites.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +45,11 @@ import { AuthAdminModule } from './core/auth/auth-admin/auth-admin.module';
     CategoriesListingComponent,
     ListItemsComponent,
     AdminDashboardComponent,
-    HeaderDashboardComponent,
     AboutUsComponent,
     ShoppingCartComponent,
     AccountInfoComponent,
     ChangePassComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,

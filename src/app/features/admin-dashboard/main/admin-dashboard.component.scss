@@ -1,0 +1,97 @@
+div.best-products {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+}
+
+h1 {
+    margin: 0 0 1em 0.5em;
+    color: rgb(180, 0, 0);
+}
+
+div.number-of-sales {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+}
+
+div.top-countries {
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+}
+
+div.visits {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+
+    div p {
+        text-align: center;
+    }
+
+    p:first-of-type {
+        font-size: 2em;
+    }
+}
+
+div.body {
+    height: 90%;
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    grid-template-rows: 40% 30% 30%;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        border: 0;
+        border-radius: 10px;
+        background-color: rgb(245, 245, 245);
+        margin: 0.5em;
+        padding: 2em;
+
+        a {
+            align-self: flex-end;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: rgb(180, 0, 0);
+            text-decoration: underline;
+        }
+    }
+}
+
+div.cats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    button {
+        margin: 0 10%;
+        background: none;
+        border: 0;
+        border-radius: 5px;
+        font-size: 1.3em;
+        padding: 1em;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: rgb(245, 245, 245);
+    }
+
+    button:hover:active {
+        background-color: rgb(180, 0, 0);
+        color: white;
+    }
+
+    button.chosen-cat {
+        background-color: rgb(180, 0, 0);
+        color: white;
+    }
+}
+
+ag-grid-angular {
+    margin: 1em 0;
+    flex: 1;
+}

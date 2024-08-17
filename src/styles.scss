@@ -40,6 +40,7 @@ app-register,
 app-home-page,
 app-about-us,
 app-shopping-cart,
+app-favourites,
 app-display-item,
 app-account-info,
 app-change-pass {
@@ -51,8 +52,19 @@ app-change-pass {
     align-self: center;
 }
 
+app-admin-dashboard {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 100vh;
+    align-self: center;
+    width: clamp(500px, 90vw, 2000px);
+    margin-top: 3em;
+    margin-bottom: 5em;
+}
+
 app-shopping-cart,
-app-account-info {
+app-account-info,
+app-favourites {
     align-items: normal;
 }
 
