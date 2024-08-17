@@ -1,0 +1,16 @@
+<h1>My Favourites</h1>
+<div class="favourites-list" *ngIf="rowData.length !== 0">
+    <div class="fav-item" *ngFor="let item of rowData">
+        <img [src]="item[1].image" alt="Image of the {{ item[1].title }}" routerLink="../item/:{{item[0]}}">
+        <div routerLink="../item/:{{item[0]}}">
+            <h3>{{ item[1].title }}</h3>
+            <p>{{ item[1].category }}</p>
+        </div>
+        <p>{{ item[1].description }}</p>
+        <button (click)="onRemove(item[0])">×</button>
+    </div>
+</div>
+<div class="favourites-list no-items" *ngIf="rowData.length === 0">
+    <p>You have no items set as Favourites.</p>
+    <p>Go back to the <a routerLink="../products">items list</a> to see if you're interested in anything!</p>
+</div>

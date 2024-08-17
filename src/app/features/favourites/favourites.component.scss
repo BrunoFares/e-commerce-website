@@ -1,0 +1,131 @@
+h1 {
+    color: rgb(180, 0, 0);
+    margin: 2em 0 1em;
+    font-size: 2em;
+}
+
+div.favourites-list {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    border-radius: 1.4em;
+    border: 5px solid black;
+    padding: 2em;
+    box-shadow: black 4px 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+div.fav-item {
+    border-radius: 1.4em;
+    border: 3px solid black;
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 20% 40% 30% 10%;
+    align-items: center;
+    animation-name: slideout;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+
+    >* {
+        margin: 0 15%;
+    }
+
+    p {
+        flex: 3;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    div {
+        display: flex;
+        flex: 4;
+        flex-direction: column;
+        gap: 0.6em;
+        overflow: hidden;
+        white-space: wrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+
+        p {
+            font-style: italic;
+        }
+    }
+}
+
+div.fav-item:hover {
+    animation-name: slidein;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    box-shadow: black 4px 4px;
+}
+
+div.no-items {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    a {
+        background-color: white;
+        color: rgb(180, 0, 0);
+        font-weight: 700;
+        text-decoration: none;
+        padding: 3px 10px;
+        border-radius: 3px;
+    }
+
+    a:hover {
+        color: white;
+        background-color: rgb(180, 0, 0);
+    }
+}
+
+img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button {
+    font-size: 2em;
+    background-color: rgb(180, 0, 0);
+    border: 0;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(120, 0, 0);
+}
+
+button:hover:active {
+    background-color: white;
+    color: rgb(180, 0, 0);
+}
+
+@keyframes slideout {
+    from {
+        translate: -4px -4px;
+        scale: 100% 1;
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
+
+@keyframes slidein {
+    from {
+        translate: 0 0;
+    }
+
+    to {
+        translate: -4px -4px;
+        scale: 100% 1;
+    }
+}
