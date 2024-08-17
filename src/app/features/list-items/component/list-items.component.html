@@ -4,19 +4,19 @@
         <div class="category">
             <h5>Category</h5>
             <div>
-                <input (click)="filt('electronics')" type="checkbox" name="electronics" id="electronics">
+                <input (click)="filtByCat('electronics')" type="checkbox" name="electronics" id="electronics">
                 <label for="electronics">Electronics</label>
             </div>
             <div>
-                <input (click)="filt('jewelery')" type="checkbox" name="jewelery" id="jewelery">
+                <input (click)="filtByCat('jewelery')" type="checkbox" name="jewelery" id="jewelery">
                 <label for="jewelery">Jewelery</label>
             </div>
             <div>
-                <input (click)="filt('men\'s clothing')" type="checkbox" name="mens-clothing" id="mens-clothing">
+                <input (click)="filtByCat('men\'s clothing')" type="checkbox" name="mens-clothing" id="mens-clothing">
                 <label for="mens-clothing">Men's clothing</label>
             </div>
             <div>
-                <input (click)="filt('women\'s clothing')" type="checkbox" name="womens-clothing" id="womens-clothing">
+                <input (click)="filtByCat('women\'s clothing')" type="checkbox" name="womens-clothing" id="womens-clothing">
                 <label for="womens-clothing">Women's clothing</label>
             </div>
         </div>
@@ -32,23 +32,23 @@
     <div class="sort">
         <h4>SORT BY</h4>
         <div>
-            <input type="radio" id="alph-small">
+            <input (click)="sort('alph-small')" name="sort" value="alph-small" type="radio" id="alph-small">
             <label for="alph-small">Alphabetical (A-Z)</label>
         </div>
         <div>
-            <input type="radio" id="alph-large">
+            <input (click)="sort('alph-large')" name="sort" value="alph-large" type="radio" id="alph-large">
             <label for="alph-large">Alphabetical (Z-A)</label>
         </div>
         <div>
-            <input type="radio" id="price-small">
+            <input (click)="sort('price-small')" name="sort" value="price-small" type="radio" id="price-small">
             <label for="price-small">Price (Cheap - Expensive)</label>
         </div>
         <div>
-            <input type="radio" id="price-big">
+            <input (click)="sort('price-big')" name="sort" value="price-big" type="radio" id="price-big">
             <label for="price-big">Price (Expensive - Cheap)</label>
         </div>
         <div>
-            <input type="radio" id="popular">
+            <input (click)="sort('popular')" name="sort" value="popular" type="radio" id="popular" checked>
             <label for="popular">Most Popular</label> 
         </div>
     </div>
