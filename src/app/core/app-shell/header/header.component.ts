@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   displayCategories = false;
+  displayOptions = false;
   searchQuery!: string;
 
   constructor(private router: Router) { }
@@ -26,5 +27,9 @@ export class HeaderComponent {
 
   hideCats() {
     this.displayCategories = false;
+  }
+
+  toggleOpts() {
+    this.displayOptions = this.displayOptions ? false : true;
   }
 }

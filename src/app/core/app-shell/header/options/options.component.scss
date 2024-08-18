@@ -1,0 +1,72 @@
+button {
+    background-color: rgb(180, 0, 0);
+    color: white;
+    border: 0;
+    font-size: 17px;
+    padding: 0 1em;
+}
+
+div {
+    button {
+        padding: 1em 1em;
+    }
+
+    button:hover {
+        background-color: rgb(120, 0, 0);
+        cursor: pointer;
+    }
+}
+
+img {
+    height: 20px;
+}
+
+input {
+    border-radius: 15px;
+    border: 0;
+    font-size: 17px;
+    padding: 7px 12px 7px 12px;
+    background-color: rgb(120, 0, 0);
+    width: 50%;
+    color: white;
+}
+
+div.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 30%;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        margin: 0 1em;
+        padding: 0;
+    }
+}
+
+img {
+    height: 1.5em;
+}
+
+.icons:not(div):hover {
+    animation-duration: 0.1s;
+    animation-name: zoom;
+    animation-fill-mode: forwards;
+}
+
+.icons:not(div):hover:active {
+    animation-duration: 0.1s;
+    animation-name: zoomOut;
+    animation-fill-mode: forwards;
+}
+
+div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

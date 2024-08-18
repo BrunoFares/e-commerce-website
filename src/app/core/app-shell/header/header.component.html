@@ -1,4 +1,5 @@
 <nav>
+    <img src="item-tray.png" alt="More options" (click)="toggleOpts()">
     <img src="tbs-logo.png" alt="Website logo" routerLink="" class="logo">
     <div>
         <button routerLink="">Home</button>
@@ -30,3 +31,4 @@
         </svg>
     </div>
 </nav>
+<app-options *ngIf="displayOptions"></app-options>

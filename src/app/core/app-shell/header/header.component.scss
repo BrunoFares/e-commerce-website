@@ -24,6 +24,7 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 3%;
+    box-sizing: border-box;
 }
 
 div {
@@ -100,6 +101,10 @@ app-categories-listing {
     transform-origin: top center;
 }
 
+nav>img:first-of-type {
+    display: none;
+}
+
 @keyframes open {
     from {
         translate: scale(0);
@@ -140,4 +145,46 @@ app-categories-listing {
     to {
         transform: rotate(10deg);
     }
+}
+
+@media screen and (max-width: 900px) {
+    nav>img:first-of-type {
+        display: block;
+    }
+
+    nav>img:first-of-type:hover {
+        animation-duration: 0.1s;
+        animation-name: zoom;
+        animation-fill-mode: forwards;
+    }
+
+    nav>img:first-of-type:hover:active {
+        animation-duration: 0.1s;
+        animation-name: zoomOut;
+        animation-fill-mode: forwards;
+    }
+
+    nav div:first-of-type,
+    form,
+    div img {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1em;
+    }
+}
+
+app-options {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: $background;
+    width: 100%;
+    gap: 1em;
+    padding: 1em 0;
+    box-shadow: 5px 5px black, -5px 5px black;
 }
