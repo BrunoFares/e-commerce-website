@@ -1,6 +1,8 @@
+$beige: #ffde9b;
+
 button {
-    background-color: rgb(180, 0, 0);
-    color: white;
+    background-color: rgb(120, 0, 0);
+    color: $beige;
     border: 0;
     font-size: 17px;
     padding: 0 1em;
@@ -12,7 +14,7 @@ div {
     }
 
     button:hover {
-        background-color: rgb(120, 0, 0);
+        background-color: rgb(80, 0, 0);
         cursor: pointer;
     }
 }
@@ -26,7 +28,7 @@ input {
     border: 0;
     font-size: 17px;
     padding: 7px 12px 7px 12px;
-    background-color: rgb(120, 0, 0);
+    background-color: rgb(80, 0, 0);
     width: 50%;
     color: white;
 }

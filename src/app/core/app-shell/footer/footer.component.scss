@@ -1,16 +1,20 @@
+$beige: #ffde9b;
+$main-red: rgb(120, 0, 0);
+
 nav {
     display: flex;
     align-items: center;
-    background-color: rgb(180, 0, 0);
+    background-color: $main-red;
     justify-content: center;
-    color: white;
+    color: $beige;
     gap: 5%;
     height: 5em;
+    font-size: 1.3em
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: $beige;
 }
 
 a:hover {
@@ -20,4 +24,14 @@ a:hover {
 img {
     height: 30px;
     margin-right: 1em;
+}
+
+@media screen and (max-width: 900px) {
+    nav {
+        font-size: 0.7em;
+
+        img {
+            height: 1.5em;
+        }
+    }
 }

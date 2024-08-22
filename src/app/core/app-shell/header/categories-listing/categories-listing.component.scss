@@ -1,9 +1,12 @@
+$main-red: rgb(120, 0, 0);
+$beige: #ffde9b;
+
 div {
     display: flex;
     flex-direction: column;
-    background-color: rgb(180, 0, 0);
-    color: white;
-    font-size: 1.1em;
+    background-color: $main-red;
+    color: $beige;
+    font-size: 1.4em;
     padding: 1em 0.8em;
     border-radius: 0 0 10px 10px;
     box-shadow: 5px 5px black, 5px 0 black;
@@ -17,6 +20,7 @@ div {
         from {
             scale: 0 0;
         }
+
         to {
             scale: 100% 1;
         }
@@ -26,7 +30,7 @@ div {
 a {
     cursor: pointer;
     text-decoration: none;
-    color: white;
+    color: $beige;
     margin: 0.1em;
     border-radius: 5px;
     padding: 0.2em 0.5em;
@@ -34,10 +38,11 @@ a {
 
 a:first-of-type {
     font-weight: 900;
+    font-size: 1.6rem;
     margin: 0.3em 0;
 }
 
 a:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(180, 0, 0);
+    background-color: $beige;
+    color: $main-red;
 }
