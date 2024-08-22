@@ -1,4 +1,7 @@
-<h1>My Account</h1>
+<div class="title">
+    <h1>My Account</h1>
+    <button *ngIf="userIsAdmin" routerLink="../dashboard">Dashboard</button>
+</div>
 <div class="body">
     <div>
         <p>Email:</p>
@@ -7,12 +10,12 @@
         <p>Password:</p>
     </div>
     <div>
-        <p>{{ user.email }}</p>
-        <p>{{ user.given_name }}</p>
-        <p>{{ user.family_name }}</p>
+        <p>{{ jwtUser.email }}</p>
+        <p>{{ jwtUser.given_name }}</p>
+        <p>{{ jwtUser.family_name }}</p>
         <div class="pass">
             <p>********</p>
-            <button routerLink="change-pass">Change my <br>Password</button>
+            <!-- <button routerLink="change-pass">Change my <br>Password</button> -->
         </div>
     </div>
 </div>

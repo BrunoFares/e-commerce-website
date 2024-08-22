@@ -1,23 +1,24 @@
+$main-red: rgb(120, 0, 0);
+
 h1 {
-    color: rgb(180, 0, 0);
-    margin: 2em 0 1em;
-    font-size: 2em;
+    color: $main-red;
+    margin: 1em 0;
+    font-size: 3em;
 }
 
 div.favourites-list {
-    background-color: rgb(180, 0, 0);
+    background-color: $main-red;
     color: white;
-    border-radius: 1.4em;
-    border: 5px solid black;
     padding: 2em;
     box-shadow: black 4px 4px;
     display: flex;
     flex-direction: column;
+    font-size: 1.4em;
     gap: 1em;
 }
 
 div.fav-item {
-    border-radius: 1.4em;
+    border-radius: 1em;
     border: 3px solid black;
     padding: 2em;
     display: grid;
@@ -42,7 +43,6 @@ div.fav-item {
         display: flex;
         flex: 4;
         flex-direction: column;
-        gap: 0.6em;
         overflow: hidden;
         white-space: wrap;
         text-overflow: ellipsis;
@@ -69,7 +69,7 @@ div.no-items {
 
     a {
         background-color: white;
-        color: rgb(180, 0, 0);
+        color: $main-red;
         font-weight: 700;
         text-decoration: none;
         padding: 3px 10px;
@@ -78,7 +78,7 @@ div.no-items {
 
     a:hover {
         color: white;
-        background-color: rgb(180, 0, 0);
+        background-color: $main-red;
     }
 }
 
@@ -92,7 +92,7 @@ img {
 
 button {
     font-size: 2em;
-    background-color: rgb(180, 0, 0);
+    background-color: $main-red;
     border: 0;
     color: white;
     border-radius: 5px;
@@ -100,12 +100,12 @@ button {
 }
 
 button:hover {
-    background-color: rgb(120, 0, 0);
+    background-color: rgb(80, 0, 0);
 }
 
 button:hover:active {
     background-color: white;
-    color: rgb(180, 0, 0);
+    color: $main-red;
 }
 
 @keyframes slideout {
@@ -127,5 +127,23 @@ button:hover:active {
     to {
         translate: -4px -4px;
         scale: 100% 1;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    div.fav-item {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        font-size: 0.5em;
+
+        div {
+            margin: 0;
+        }
+
+        p {
+            text-wrap: wrap;
+            margin: 0;
+        }
     }
 }

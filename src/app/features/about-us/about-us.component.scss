@@ -1,38 +1,38 @@
+$main-red: rgb(120, 0, 0);
+$beige: #ffde9b;
+
 div.title {
     margin: 8em 0;
-    background-color: rgb(180, 0, 0);
-    padding: 3em;
-    color: white;
-    border: 0.3em solid black;
-    box-shadow: 0.4em 0.4em black;
-    border-radius: 1.5em;
+    color: $main-red;
     text-align: center;
 
     h1 {
-        font-size: 3em;
+        font-size: 5em;
     }
 
     h2 {
-        font-size: 2em;
+        font-size: 4em;
         font-weight: 100;
-    }    
+    }
 }
 
 p {
-    font-size: 1.3em;
+    font-size: 1.7em;
     text-align: center;
 }
 
-div.quote {
+div.upper-quote {
     margin: 6em;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+}
+
+div.quote {
     padding: 2.5em;
     display: flex;
-    background-color: rgb(180, 0, 0);
-    color: white;
     align-items: center;
-    border: 0.3em solid black;
-    box-shadow: 0.4em 0.4em black;
-    border-radius: 1.5em;
 
     div {
         width: auto;
@@ -44,13 +44,14 @@ div.quote {
 
     p:first-of-type {
         font-weight: 700;
-        font-size: 2em;
+        font-size: 3em;
         margin: 0;
     }
 
     p:nth-of-type(2) {
         text-align: start;
-        width: 160px;
+        width: 200px;
+        font-size: 2em;
         margin: 0 0 0 5em;
         font-style: italic;
     }

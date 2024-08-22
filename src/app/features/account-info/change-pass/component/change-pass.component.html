@@ -1,6 +1,12 @@
 <h2>Change your Password</h2>
 <form (ngSubmit)="onSubmit()">
-    <label for="password">New Password</label>
-    <input type="text" [(ngModel)]="password" name="password" id="password">
+    <label for="old-pass">Old Password</label>
+    <input type="text" [(ngModel)]="oldPass" name="old-pass" id="old-pass">
+    <label for="new-pass">New Password</label>
+    <input type="text" [(ngModel)]="newPass" name="new-pass" id="new-pass">
+    <label for="new-pass-again">Confirm Password</label>
+    <input type="text" [(ngModel)]="newPassAgain" name="new-pass-again" id="new-pass-again">
+    <p *ngIf="passMatch">Passwords must match!</p>
+    <p *ngIf="invalidPass">Password cannot contain spaces.</p>
     <button>Change My Password</button>
 </form>

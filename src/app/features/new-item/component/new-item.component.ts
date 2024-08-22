@@ -16,7 +16,7 @@ export class NewItemComponent {
   image!: string;
   category!: string;
 
-  constructor(private newItemService: NewItemService) {}
+  constructor(private newItemService: NewItemService) { }
 
   itemForm = new FormGroup({
     title: new FormControl(this.title, Validators.required),
@@ -36,7 +36,7 @@ export class NewItemComponent {
     }
 
     this.newItemService.createNewItem(newItem).subscribe((response: NewItemResponse) => {
-      console.log(response);
+      alert('Added ' + this.title + " to the online shop with id " + response.id + '.');
     }, error => {
       console.log(error)
     })

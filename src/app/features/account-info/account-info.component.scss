@@ -1,6 +1,8 @@
+$main-red: rgb(120, 0, 0);
+
 div.body {
     display: flex;
-    font-size: 1.1em;
+    font-size: 1.5em;
 
     div:first-child {
         font-weight: 700;
@@ -12,16 +14,13 @@ div.body {
     }
 }
 
-h1 {
-    color: rgb(180, 0, 0);
-}
-
 button {
-    background-color: rgb(180, 0, 0);
+    background-color: $main-red;
     color: white;
     align-self: flex-end;
     border: 0;
     margin-left: 1em;
+    font-size: large;
     margin-top: 0;
     padding: 0.7em 2em;
     border-radius: 0.7em;
@@ -31,11 +30,22 @@ button {
 
 button:hover {
     background-color: rgb(255, 255, 255);
-    color: rgb(180, 0, 0);
+    color: $main-red;
 }
 
 button:hover:active {
     background-color: rgb(234, 234, 234);
+}
+
+div.title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    h1 {
+        color: $main-red;
+        font-size: 3em;
+    }
 }
 
 div.pass {
@@ -59,5 +69,18 @@ div.pass {
     button:hover:active {
         background-color: rgb(144, 144, 144);
         color: black;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    div.body {
+        div:first-of-type {
+            width: 4em;
+            margin-right: 10px;
+        }
+
+        div.pass button {
+            margin-left: 10px;
+        }
     }
 }

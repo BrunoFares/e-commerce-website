@@ -1,12 +1,15 @@
 <div class="cats">
     <button (click)="chooseDash(0)">Dashboard</button>
     <button (click)="chooseDash(1)">Best-Selling Products</button>
-    <button (click)="chooseDash(2)">Sales Graph</button>
+    <button (click)="chooseDash(2)">Sales Per Month</button>
     <button (click)="chooseDash(3)">Top Countries Sold To</button>
     <button (click)="chooseDash(4)">Website Visits</button>
 </div>
 <div class="pitch" *ngIf="choices[0]">
-    <h1>Dashboard</h1>
+    <div class="title">
+        <h1>Dashboard</h1>
+        <button routerLink="../new-item">Add a new product</button>
+    </div>
     <div class="body">
         <div class="best-products">
             <h2>Best-Selling Products</h2>
@@ -17,7 +20,11 @@
             <a (click)="chooseDash(1)">More details...</a>
         </div>
         <div class="number-of-sales">
-            <h2>Sales Graph</h2>
+            <h2>Sales Per Month</h2>
+            <ag-grid-angular 
+            class="ag-theme-quartz" 
+            [rowData]="rowData" 
+            [columnDefs]="colDefs" />
             <a (click)="chooseDash(2)">More details...</a>
         </div>
         <div class="top-countries">
@@ -40,13 +47,29 @@
 </div>
 <div class="pitch" *ngIf="choices[1]">
     <h1>Best-Selling Products</h1>
+    <ag-grid-angular 
+            class="ag-theme-quartz"
+            [rowData]="rowData" 
+            [columnDefs]="colDefs"/>
 </div>
 <div class="pitch" *ngIf="choices[2]">
-    <h1>Sales Graph</h1>
+    <h1>Sales Per Month</h1>
+    <ag-grid-angular 
+            class="ag-theme-quartz"
+            [rowData]="rowData" 
+            [columnDefs]="colDefs" />
 </div>
 <div class="pitch" *ngIf="choices[3]">
     <h1>Top Countries Sold To</h1>
+    <ag-grid-angular 
+            class="ag-theme-quartz"
+            [rowData]="rowData" 
+            [columnDefs]="colDefs" />
 </div>
 <div class="pitch" *ngIf="choices[4]">
     <h1>Website Visits</h1>
+    <ag-grid-angular 
+            class="ag-theme-quartz"
+            [rowData]="rowData" 
+            [columnDefs]="colDefs" />
 </div>

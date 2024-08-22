@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { createStore, values, del, entries } from 'idb-keyval';
+import { createStore, get, update } from 'idb-keyval';
 
 @Component({
   selector: 'app-favourites',
@@ -9,19 +9,22 @@ import { createStore, values, del, entries } from 'idb-keyval';
 export class FavouritesComponent {
   rowData: any[] = [];
   customStore: any;
+  tempUser: any = localStorage.getItem('jwtUser')
+  jwtUser = JSON.parse(this.tempUser);
 
   onRemove(id: number) {
-    console.log(id);
-    del(id, this.customStore);
+    update(this.jwtUser.email, data => {
+      data = data.filter((item: any) => item.id !== id);
+      return data;
+    }, this.customStore)
     this.ngOnInit();
   }
 
   ngOnInit() {
     this.customStore = createStore('FavouritesDB', 'FavouritesStore');
 
-    entries(this.customStore).then((data) => {
-      this.rowData = data.map(item => item)
-      console.log(this.rowData)
+    get(this.jwtUser.email, this.customStore).then((data) => {
+      this.rowData = data.map((item: any) => item);
     });
   }
 }

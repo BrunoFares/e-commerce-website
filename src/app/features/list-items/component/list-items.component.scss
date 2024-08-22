@@ -1,17 +1,26 @@
+$main-red: rgb(120, 0, 0);
+$beige: #ffde9b;
+
 div.sidebar {
-    background-color: rgb(180, 0, 0);
-    border-radius: 1em;
-    border: 5px solid black;
+    background-color: $main-red;
     box-shadow: 6px 6px black;
     color: white;
     padding: 10%;
     gap: 2em;
-    font-size: 1.1em;
+    font-size: 1.5em;
+    letter-spacing: 1px;
     height: fit-content;
 }
 
 div.filter {
     gap: 1em;
+}
+
+div.category,
+div.sort {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
 }
 
 div.sort h4 {
@@ -21,15 +30,6 @@ div.sort h4 {
 div {
     display: flex;
     flex-direction: column;
-}
-
-div.budget div {
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-input#budget {
-    margin-bottom: 0.6em;
 }
 
 h5 {
@@ -42,8 +42,12 @@ div.sort div {
 }
 
 h1 {
-    color: rgb(180, 0, 0);
-    font-size: 2.5em;
+    color: $main-red;
+    font-size: 4em;
+}
+
+h1.small {
+    display: none;
 }
 
 div.body {
@@ -64,6 +68,7 @@ div.body {
         padding: 1em;
         gap: 10px;
         flex: 1;
+        font-size: 1.5em;
         cursor: pointer;
 
         p:nth-of-type(2) {
@@ -82,6 +87,10 @@ div.body {
     }
 }
 
+label {
+    margin-left: 0.5em;
+}
+
 img {
     height: 150px;
     object-fit: cover;
@@ -93,7 +102,7 @@ img {
         translate: -1% -1%;
         scale: 100% 1;
     }
-  
+
     to {
         translate: 0 0;
     }
@@ -101,11 +110,36 @@ img {
 
 @keyframes slidein {
     from {
-      translate: 0 0;
+        translate: 0 0;
     }
-  
+
     to {
-      translate: -2% -2%;
-      scale: 100% 1;
+        translate: -2% -2%;
+        scale: 100% 1;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    div.sidebar {
+        width: 70%;
+        margin-bottom: 1em;
+    }
+
+    h1.small {
+        display: flex;
+        align-self: start;
+        margin: 0 0 0.5em 0.5em;
+    }
+
+    div.body {
+        h1 {
+            display: none;
+        }
+
+        div.items {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            gap: 5px;
+        }
     }
 }

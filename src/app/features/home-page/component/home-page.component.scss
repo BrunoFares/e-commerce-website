@@ -1,21 +1,23 @@
 $radius: 1.5em;
+$main-red: rgb(120, 0, 0);
+$beige: #ffde9b;
 
 div.title {
-    margin: 15em 0;
-    background-color: rgb(180, 0, 0);
-    padding: 3em;
-    color: white;
-    border: 0.3em solid black;
-    box-shadow: 0.4em 0.4em black;
-    border-radius: $radius;
+    margin: 10em 0 8em;
+    color: $main-red;
 
     h1 {
-        font-size: 3em;
+        font-size: 5em;
     }
 
     h2 {
-        font-size: 2em;
+        font-size: 4em;
         font-weight: 100;
+    }
+
+    img {
+        height: 7em;
+        margin-top: 1em;
     }
 }
 
@@ -24,13 +26,18 @@ h3 {
     font-weight: 400;
 }
 
+div.upper-top-choices,
+div.upper-our-story {
+    width: 98vw;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+}
+
 div.top-choices,
 div.our-story {
-    background-color: rgb(180, 0, 0);
-    border: 4px solid black;
-    border-radius: $radius;
-    box-shadow: 5px 5px black;
-    color: white;
+    color: $main-red;
+    font-weight: 700;
     text-align: start;
     width: clamp(300px, 60vw, 1000px);
     display: flex;
@@ -40,8 +47,7 @@ div.our-story {
 div.top-choices>div,
 div.our-story>div {
     display: flex;
-    padding: 2em 3em;
-    width: 100%;
+    padding: 2em 0em;
     box-sizing: border-box;
 }
 
@@ -53,13 +59,15 @@ div.items {
     div {
         display: flex;
         flex-direction: column;
-        border: 3px solid black;
         border-radius: $radius;
+        border: 3px solid rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.6);
         padding: 1.8em 1em;
         flex: 1 1 0;
         justify-content: space-around;
         animation-name: slideout;
         animation-duration: 0.2s;
+        font-size: 1.3em;
 
         img {
             width: 90%;
@@ -74,7 +82,7 @@ div.items {
         animation-duration: 0.2s;
         animation-name: slidein;
         animation-direction: alternate;
-        box-shadow: 6px 6px black;
+        box-shadow: 6px 6px rgba(255, 255, 255, 0.7);
         animation-fill-mode: forwards;
         cursor: pointer;
     }
@@ -105,10 +113,11 @@ div.items {
 div div.big-card-title {
     align-items: center;
     padding-bottom: 0;
+    font-size: 1.5em;
 }
 
-img.icons {
-    height: 2.5em;
+img.icon {
+    height: 2em;
     margin-right: 1em;
 }
 
@@ -122,18 +131,20 @@ p.item-price {
     margin-inline-end: 1.5em;
 }
 
-div.our-story {
+div.upper-our-story {
     margin-top: 4em;
 
     p {
-        margin: 2em 3em 1.5em 3em;
+        margin: 2em 0 1.5em;
+        font-size: 1.5em
     }
 
     a {
         align-self: flex-start;
-        margin: 0 3em 2em 3em;
-        color: white;
+        margin-bottom: 2em;
+        color: $main-red;
         text-decoration: none;
+        font-size: 1.5em;
     }
 
     a:hover {
@@ -145,13 +156,12 @@ div.slideshow {
     position: relative;
     display: inline-block;
     width: clamp(300px, 60vw, 1000px);
-    background-color: black;
-    border-radius: $radius;
+    background-color: $beige;
     margin-top: 3em;
 
     img {
         width: 100%;
-        border-radius: $radius;
+        object-fit: cover;
     }
 
     h3 {
@@ -202,5 +212,92 @@ div.slideshow {
     to {
         translate: scale(1);
         scale: 1 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    div.title {
+        margin: 5em 0;
+        padding: 1em;
+
+        h1 {
+            font-size: 35px;
+        }
+
+        h2 {
+            font-size: 25px;
+        }
+    }
+
+    div.our-story,
+    div.top-choices {
+        div.big-card-title {
+            margin: 0.8em 0 0;
+            padding: 0;
+
+            h3 {
+                font-size: 15px;
+            }
+
+            img {
+                height: 15px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    div.our-story p,
+    div.our-story a {
+        font-size: 8px;
+    }
+
+    div.top-choices {
+
+        div.items {
+            flex-direction: column;
+            padding: 10px 10px 10px 10px;
+            gap: 5px;
+
+            div {
+                flex-direction: row;
+                font-size: 8px;
+                align-items: center;
+                border-radius: 10px;
+                border: 2px solid rgba(0, 0, 0, 0.2);
+
+                * {
+                    flex: 1;
+                }
+
+                img {
+                    width: 70px;
+                    height: 70px;
+                    margin: 0;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
+
+            div:hover {
+                box-shadow: 0.3em 0.3em rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+
+    div.slideshow {
+        button {
+            font-size: 0.6em;
+            padding: 1.5em 0.5em;
+            border-radius: 0px 5px 5px 0px;
+        }
+
+        button:nth-of-type(even) {
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        h3 {
+            font-size: 0.7em;
+            border-radius: 0 5px 5px 5px;
+        }
     }
 }

@@ -12,34 +12,29 @@ export class AccountInfoComponent {
   accessToken!: string;
   refreshToken!: string;
   user!: any;
-  userIsAdmin!: any
+  jwtUser!: any;
+  userIsAdmin!: boolean;
 
   constructor(private logoutService: LogoutService, private router: Router) { }
 
   onLogout() {
     this.logoutService.logout(this.accessToken, this.refreshToken);
 
-    if (this.userIsAdmin) {
-      localStorage.removeItem('admin');
-    } else {
-      localStorage.removeItem('user');
-    }
+    localStorage.removeItem('user');
     localStorage.removeItem('jwtUser');
 
     this.router.navigateByUrl('login');
+    location.reload();
   }
 
   ngOnInit() {
-    if (localStorage.getItem('admin') === null) {
-      this.accessToken = JSON.parse(localStorage['user']).Login.AccessToken;
-      this.refreshToken = JSON.parse(localStorage['user']).Login.RefreshToken;
-    }
-    else {
+    this.user = JSON.parse(localStorage['user']);
+    this.accessToken = this.user.Login.AccessToken;
+    this.refreshToken = this.user.Login.RefreshToken;
+    this.jwtUser = parseJwt(this.accessToken);
+
+    if (this.jwtUser.realm_access.roles.includes('Admin')) {
       this.userIsAdmin = true;
-      this.accessToken = JSON.parse(localStorage['admin']).Login.AccessToken;
-      this.refreshToken = JSON.parse(localStorage['admin']).Login.RefreshToken;
     }
-    this.user = parseJwt(this.accessToken);
-    console.log(this.user);
   }
 }

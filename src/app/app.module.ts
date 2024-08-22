@@ -29,8 +29,9 @@ import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
 import { AccountInfoComponent } from './features/account-info/account-info.component';
 import { ChangePassComponent } from './features/account-info/change-pass/component/change-pass.component';
-import { AuthAdminModule } from './core/auth/auth-admin/auth-admin.module';
 import { FavouritesComponent } from './features/favourites/favourites.component';
+import { OptionsComponent } from './core/app-shell/header/options/options.component';
+import { CheckoutComponent } from './features/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,8 @@ import { FavouritesComponent } from './features/favourites/favourites.component'
     AccountInfoComponent,
     ChangePassComponent,
     FavouritesComponent,
+    OptionsComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,6 @@ import { FavouritesComponent } from './features/favourites/favourites.component'
     StoreModule.forFeature('auth', authReducer),
     EffectsModule.forFeature([AuthEffects]),
     AuthModule,
-    AuthAdminModule,
     EffectsModule.forRoot(AuthEffects),
     EffectsModule.forFeature(AuthEffects)
   ],

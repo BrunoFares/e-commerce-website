@@ -1,11 +1,12 @@
 <h1>Add a new product to the store</h1>
+<p>Fill in all the available fields to be able to add a new product to the store.</p>
 <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
     <fieldset>
         <label for="title">Title</label><br>
         <input name="title" type="text" formControlName="title" id="title"><br>
 
         <label for="price">Price</label><br>
-        <input name="price" type="text" formControlName="price" id="price"><br>
+        <input name="price" type="number" formControlName="price" id="price"><br>
 
         <label for="description">Description</label><br>
         <input name="description" type="description" formControlName="description" id="description"><br>

@@ -4,16 +4,23 @@
         url('/sfuitext-regular-webfont.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'Milky Vintage';
+    src: url(/MilkyVintage-Regular.ttf);
+}
+
 * {
     margin: 0;
-    font-family: 'San Francisco', sans-serif;
+    font-family: 'Milky Vintage', sans-serif;
 }
 
 body {
-    background-image: url('/background.png');
+    background-color: #ffde9b;
     background-attachment: fixed;
     background-size: 50%;
     backdrop-filter: blur(3px);
+    margin: 0;
+    padding: 0;
 }
 
 p {
@@ -38,8 +45,10 @@ app-footer {
 app-login,
 app-register,
 app-home-page,
+app-new-item,
 app-about-us,
 app-shopping-cart,
+app-checkout,
 app-favourites,
 app-display-item,
 app-account-info,
@@ -48,7 +57,7 @@ app-change-pass {
     flex-direction: column;
     align-items: center;
     margin-bottom: 5em;
-    width: clamp(500px, 70vw, 900px);
+    width: clamp(500px, 70vw, 1050px);
     align-self: center;
 }
 
@@ -64,13 +73,15 @@ app-admin-dashboard {
 
 app-shopping-cart,
 app-account-info,
-app-favourites {
+app-favourites,
+app-checkout,
+app-new-item {
     align-items: normal;
 }
 
 app-list-items {
     display: grid;
-    width: clamp(800px, 60vw, 1000px);
+    width: clamp(500px, 80vw, 1050px);
     margin-top: 3em;
     align-self: center;
     grid-template-columns: 30% 70%;
@@ -87,18 +98,44 @@ app-categories-listing {
     z-index: 1000;
 }
 
+app-options {
+    z-index: 1000;
+}
+
 app-display-item,
 app-account-info {
-    background-color: rgba(0, 0, 0, 0.13);
     padding: 2em;
     border-radius: 1em;
-    margin: 3em;
+    margin: 2em 0;
     gap: 2em;
     align-items: start;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
+    body {
+        align-items: center;
+    }
+
     app-header {
         align-self: center;
+        width: 100%;
+    }
+
+    app-list-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    app-display-item {
+        width: 90%;
+        margin: 0;
+    }
+
+    app-favourites,
+    app-shopping-cart,
+    app-account-info {
+        width: 90%;
     }
 }

@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ListItemsService } from '../service/list-items.service';
 import { ListItems } from '../model/list-items.model';
@@ -18,34 +17,36 @@ export class ListItemsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private listItems: ListItemsService) { }
 
   sort(sorter: string) {
-    if (sorter === 'alph-small') {
-      this.displayedItems = this.displayedItems.sort((a, b) => {
-        if (a.title < b.title) {
-          return -1;
-        } else if (a.title > b.title) {
-          return 1;
-        }
-        return 0;
-      })
-    }
-    else if (sorter === 'alph-large') {
-      this.displayedItems = this.displayedItems.sort((a, b) => {
-        if (a.title < b.title) {
-          return 1;
-        } else if (a.title > b.title) {
-          return -1;
-        }
-        return 0;
-      })
-    }
-    else if (sorter === 'price-big') {
-      this.displayedItems = this.displayedItems.sort((a, b) => b.price - a.price)
-    }
-    else if (sorter === 'price-small') {
-      this.displayedItems = this.displayedItems.sort((a, b) => a.price - b.price)
-    }
-    else if (sorter === 'popular') {
-      this.displayedItems = this.displayedItems.sort((a, b) => a.id - b.id)
+    switch (sorter) {
+      case 'alph-small':
+        this.displayedItems = this.displayedItems.sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          } else if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        })
+        break;
+      case "alph-large":
+        this.displayedItems = this.displayedItems.sort((a, b) => {
+          if (a.title < b.title) {
+            return 1;
+          } else if (a.title > b.title) {
+            return -1;
+          }
+          return 0;
+        })
+        break;
+      case "price-small":
+        this.displayedItems = this.displayedItems.sort((a, b) => b.price - a.price)
+        break;
+      case 'price-big':
+        this.displayedItems = this.displayedItems.sort((a, b) => a.price - b.price)
+        break;
+      case 'popular':
+        this.displayedItems = this.displayedItems.sort((a, b) => a.id - b.id)
+        break;
     }
   }
 

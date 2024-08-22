@@ -1,11 +1,14 @@
+$main-red: rgb(120, 0, 0);
+$beige: #ffde9b;
+
 div.best-products {
     grid-column: 1 / 2;
     grid-row: 1 / 4;
 }
 
 h1 {
-    margin: 0 0 1em 0.5em;
-    color: rgb(180, 0, 0);
+    color: $main-red;
+    font-size: 3em;
 }
 
 div.number-of-sales {
@@ -39,13 +42,14 @@ div.body {
     display: grid;
     grid-template-columns: 40% 30% 30%;
     grid-template-rows: 40% 30% 30%;
+    font-size: 1.3em;
 
     div {
         display: flex;
         flex-direction: column;
         border: 0;
         border-radius: 10px;
-        background-color: rgb(245, 245, 245);
+        background-color: #fff1d5;
         margin: 0.5em;
         padding: 2em;
 
@@ -55,39 +59,59 @@ div.body {
         }
 
         a:hover {
-            color: rgb(180, 0, 0);
+            color: $main-red;
             text-decoration: underline;
         }
     }
+}
+
+button {
+    background-color: $main-red;
+    color: $beige;
+    border: 0;
+    margin-right: 2%;
+    border-radius: 5px;
+    font-size: 1.3em;
+    padding: 1em;
+    cursor: pointer;
+}
+
+div.title {
+    margin: 0 0 1em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button:hover {
+    background-color: rgb(80, 0, 0);
+}
+
+button:hover:active {
+    background-color: $main-red;
+    color: $beige;
+}
+
+div.pitch>ag-grid-angular {
+    font-size: 1.4em;
+    height: 80%;
 }
 
 div.cats {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    font-size: 1.2em;
 
     button {
-        margin: 0 10%;
         background: none;
-        border: 0;
-        border-radius: 5px;
-        font-size: 1.3em;
-        padding: 1em;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: rgb(245, 245, 245);
-    }
-
-    button:hover:active {
-        background-color: rgb(180, 0, 0);
-        color: white;
+        color: $main-red;
+        margin: 0 10%;
     }
 
     button.chosen-cat {
-        background-color: rgb(180, 0, 0);
-        color: white;
+        background-color: $main-red;
+        color: $beige;
     }
 }
 

@@ -1,11 +1,16 @@
 form {
     display: grid;
-    margin: 2em 10%;
     grid-template: 1fr 1fr / 1fr 1fr;
+    font-size: 1.3rem;
+}
+
+p {
+    font-size: 1.5em;
 }
 
 h1 {
-    margin: 1em 10%;
+    margin-top: 1em;
+    font-size: 3em;
 }
 
 fieldset {
@@ -22,11 +27,19 @@ form>button {
     border-radius: 0.7em;
 }
 
-form>button:hover {
-    background-color: rgb(150, 150, 150);
+form>button:enabled:hover {
+    background-color: rgb(120, 0, 0);
+    color: #ffde9b;
+    cursor: pointer;
 }
 
-input:not(#image), select {
+form>button:enabled:hover:active {
+    background-color: rgb(80, 0, 0);
+    color: #ffde9b;
+}
+
+input:not(#image),
+select {
     border: 0;
     border-radius: 10px;
     background-color: rgb(220, 220, 220);
@@ -39,4 +52,3 @@ label {
     margin-left: 0.3em;
     font-size: 1.3em;
 }
-

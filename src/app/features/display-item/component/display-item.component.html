@@ -1,9 +1,10 @@
+<button class="back" routerLink="../../products">← Back to Products</button>
 <h2>{{ this.item.title }}</h2>
 <div class="item-page">
     <img [src]="this.item.image" alt="Item image">
     <div class="item-info">
         <p>{{ this.item.description }}</p>
-        <div class="bolds">
+        <div class="bolds big">
             <p><span>Category:</span> {{ this.item.category }}</p>
             <div class="quantity">
                 <span>Quantity:</span>
@@ -11,7 +12,7 @@
                 <p>${{ quantity * this.item.price | number: '1.1-2'}} USD</p>
             </div>
         </div>
-        <div class="options">
+        <div class="options big">
             <div class="buttons">
                 <button (click)="addToFavourites()">
                     <img *ngIf="!favClicked" src="heart-grey-dark.png" alt="Add to favourites button">
@@ -22,8 +23,27 @@
                     <img *ngIf="cartClicked" src="check-black.png" alt="Add to shopping cart button">
                 </button>
             </div>
-            <button>Proceed to Checkout</button>
         </div>
+    </div>
+</div>
+<div class="bolds small">
+    <p><span>Category:</span> {{ this.item.category }}</p>
+    <div class="quantity">
+        <span>Quantity:</span>
+        <input [(ngModel)]="quantity" min="1" type="number" value="1" step="1">
+        <p>${{ quantity * this.item.price | number: '1.1-2'}} USD</p>
+    </div>
+</div>
+<div class="options small">
+    <div class="buttons">
+        <button (click)="addToFavourites()">
+            <img *ngIf="!favClicked" src="heart-grey-dark.png" alt="Add to favourites button">
+            <img *ngIf="favClicked" src="check-white.png" alt="Add to favourites button">
+        </button>
+        <button (click)="addToShoppingCart()">
+            <img *ngIf="!cartClicked" src="shopping-cart-grey.png" alt="Add to shopping cart button">
+            <img *ngIf="cartClicked" src="check-black.png" alt="Add to shopping cart button">
+        </button>
     </div>
 </div>
 <div class="others-section">

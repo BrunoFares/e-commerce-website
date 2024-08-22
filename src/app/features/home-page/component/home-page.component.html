@@ -1,17 +1,20 @@
 <div class="title">
     <h1>The Big Shop</h1>
-    <h2>The Place to be</h2>
+    <h2>The place to be</h2>
+    <img src="other-logo.png" alt="Logo for home page">
 </div>
-<div class="top-choices">
-    <div class="big-card-title">
-        <img src="top-choice.png" alt="Top choices icon" class="icons">
-        <h3>Top choices right now</h3>
-    </div>
-    <div class="items">
-        <div *ngFor="let item of items" routerLink="item/:{{ item.id }}">
-            <img [src]="item.image" alt="Item Image">
-            <p class="item-title">{{ item.title }}</p>
-            <p class="item-price">{{ '$' + item.price.toLocaleString() }}</p>
+<div class="upper-top-choices">
+    <div class="top-choices">
+        <div class="big-card-title">
+            <img src="top-choices.png" alt="Top choices icon" class="icon">
+            <h3>Top choices right now</h3>
+        </div>
+        <div class="items">
+            <div *ngFor="let item of items" routerLink="item/:{{ item.id }}">
+                <img [src]="item.image" alt="Item Image">
+                <p class="item-title">{{ item.title }}</p>
+                <p class="item-price">{{ '$' + item.price.toLocaleString() }}</p>
+            </div>
         </div>
     </div>
 </div>
@@ -35,11 +38,13 @@
         <img src="stock-images/woman.jpg" alt="">
     </div>
 </div>
-<div class="our-story">
-    <div class="big-card-title">
-        <img src="our-story.png" alt="Story icon" class="icons">
-        <h3>Our Story</h3>
+<div class="upper-our-story">
+    <div class="our-story">
+        <div class="big-card-title">
+            <img src="our-story.png" alt="Story icon" class="icon">
+            <h3>Our Story</h3>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat eos explicabo, facilis aut repudiandae magni impedit doloribus tenetur odio et ipsa quibusdam maiores, tempore, molestias voluptatem magnam dignissimos sit? Dolores labore ea consectetur quas repellendus ad? Aperiam, hic laboriosam, enim cumque ipsa odio quo maiores ullam numquam suscipit illum repellat.</p>
+        <a routerLink="about-us">Read the full story →</a>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat eos explicabo, facilis aut repudiandae magni impedit doloribus tenetur odio et ipsa quibusdam maiores, tempore, molestias voluptatem magnam dignissimos sit? Dolores labore ea consectetur quas repellendus ad? Aperiam, hic laboriosam, enim cumque ipsa odio quo maiores ullam numquam suscipit illum repellat.</p>
-    <a routerLink="about-us">Read the full story -></a>
 </div>
