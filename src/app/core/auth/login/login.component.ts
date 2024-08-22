@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthAdminService } from '../auth-admin/auth-admin.service';
+// import { AuthAdminService } from '../auth-admin/auth-admin.service';
 import { AppState } from "../../../reducers/index"
 import { Store } from '@ngrx/store';
 import { noop, tap } from 'rxjs';
-import { loginAdmin } from '../auth-admin/auth-admin.actions';
+// import { loginAdmin } from '../auth-admin/auth-admin.actions';
 import { login } from '../auth-user/auth.actions';
 import { LoginResponse } from './model/login-response.model';
 import { parseJwt } from '../../../shared/utils/jwtParser';
+import { AuthService } from '../auth-user/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   loggedUser!: any;
   form: UntypedFormGroup;
 
-  constructor(private auth: AuthAdminService,
+  constructor(private auth: AuthService,
     private router: Router,
     private fb: UntypedFormBuilder,
     private store: Store<AppState>) {
@@ -40,14 +41,8 @@ export class LoginComponent implements OnInit {
         this.loggedUser = JSON.stringify(parseJwt(user.Login.AccessToken));
         localStorage.setItem('jwtUser', this.loggedUser);
 
-        if (JSON.parse(this.loggedUser).realm_access.roles.includes('Admin')) {
-          this.store.dispatch(loginAdmin({ user }))
-          this.router.navigateByUrl('dashboard')
-        }
-        else {
-          this.store.dispatch(login({ user }))
-          this.router.navigateByUrl('')
-        }
+        this.store.dispatch(login({ user }))
+        this.router.navigateByUrl('')
       })
     ).subscribe(
       noop,

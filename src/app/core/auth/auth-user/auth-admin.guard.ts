@@ -1,24 +1,35 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from "@angular/router";
-import { AuthService } from "./auth.service";
-import * as AppState from './index';
 import { Store, select } from "@ngrx/store";
-import { isLoggedIn } from "./auth.selectors";
+import { isLoggedIn } from "../auth-user/auth.selectors";
 import { Observable, tap } from "rxjs";
-import { login } from "./auth.actions";
 import { LoginResponse } from "../login/model/login-response.model";
+import { parseJwt } from "../../../shared/utils/jwtParser";
+import { login } from "./auth.actions";
 
 @Injectable({
   providedIn: "root",
 })
-export class AuthGuard implements CanActivate {
+export class AuthAdminGuard implements CanActivate {
   constructor(private store: Store, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    const adminString = localStorage.getItem('jwtUser');
     const userString = localStorage.getItem('user');
-    if (userString) {
-      const user: LoginResponse = JSON.parse(userString)
+    let loggedUser;
+    let containsAdmin;
+    let user: LoginResponse;
+
+    if (adminString && userString) {
+      user = JSON.parse(userString)
       this.store.dispatch(login({ user }));
+
+      loggedUser = JSON.parse(adminString);
+      containsAdmin = loggedUser.realm_access.roles.includes('Admin');
+    }
+
+    if (!containsAdmin) {
+      this.router.navigateByUrl('/login');
     }
 
     return this.store.pipe(
