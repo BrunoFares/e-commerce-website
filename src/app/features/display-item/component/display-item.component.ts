@@ -4,7 +4,7 @@ import { DisplayItemService } from '../service/display-item.service';
 import { FormControl, FormsModule, NgModel, Validators } from '@angular/forms';
 import { CommonModule, DecimalPipe } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { createStore, keys, set } from 'idb-keyval';
+import { createStore, get, keys, set, update } from 'idb-keyval';
 
 @Component({
   selector: 'app-display-item',
@@ -16,6 +16,7 @@ import { createStore, keys, set } from 'idb-keyval';
 export class DisplayItemComponent {
   item!: DisplayItem;
   itemId: string = '';
+  jwtUser?: any;
 
   otherItems: DisplayItem[] = [];
 
@@ -33,7 +34,7 @@ export class DisplayItemComponent {
       return;
     }
 
-    if (!localStorage.getItem('user')) {
+    if (!this.jwtUser) {
       this.router.navigateByUrl('login');
       return;
     }
@@ -48,7 +49,22 @@ export class DisplayItemComponent {
       quantity: this.quantity
     }
 
-    set(this.item.id, finalItem, customStore);
+    update(this.jwtUser.email, (data) => {
+      let dup = false;
+      if (!data) {
+        data = []
+        data.push(finalItem);
+      }
+      data.map((item: any) => {
+        if (item.id === finalItem.id) {
+          dup = true;
+        }
+      })
+      if (!dup) {
+        data.push(finalItem);
+      }
+      return data;
+    }, customStore);
 
     this.cartClicked = true;
     setInterval(() => this.cartClicked = false, 3000);
@@ -65,13 +81,34 @@ export class DisplayItemComponent {
     }
 
     const customStore = createStore('FavouritesDB', 'FavouritesStore');
-    set(this.item.id, this.item, customStore);
+
+    update(this.jwtUser.email, (data) => {
+      let dup = false;
+      if (!data) {
+        data = []
+        data.push(this.item);
+      }
+      data.map((item: any) => {
+        if (item.id === this.item.id) {
+          dup = true;
+        }
+      })
+      if (!dup) {
+        data.push(this.item);
+      }
+      return data;
+    }, customStore);
 
     this.favClicked = true;
     setInterval(() => this.favClicked = false, 3000);
   }
 
   ngOnInit() {
+    this.jwtUser = localStorage.getItem('jwtUser');
+    if (this.jwtUser) {
+      this.jwtUser = JSON.parse(this.jwtUser);
+    }
+
     this.route.paramMap.subscribe(params => {
       this.itemId = params.get('id') || "";
 
@@ -99,7 +136,5 @@ export class DisplayItemComponent {
           this.otherItems.push(response);
         })
     })
-
-    console.log(this.otherItems);
   }
 }
